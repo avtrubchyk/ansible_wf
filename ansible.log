@@ -1,0 +1,14 @@
+2019-11-21 01:42:15,433 p=avtru u=2943 | minecraft2 | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python"
+    }, 
+    "changed": false, 
+    "ping": "pong"
+}
+2019-11-21 01:42:16,265 p=avtru u=2943 | minecraft1 | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python"
+    }, 
+    "changed": false, 
+    "ping": "pong"
+}
