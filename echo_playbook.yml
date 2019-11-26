@@ -1,0 +1,10 @@
+- name: Copy settings dockerfile && docker-compose.yml
+  gather_facts: No
+  hosts: group_minecraft
+  vars:
+    user_name: centos
+  tasks:  
+    - name: Copy Dockerfile
+      copy:
+        src: /home/avtru/ansible_wf/echoserver/Dockerfile
+        dest: /home/centos/Dockerfile

@@ -1,0 +1,53 @@
+- name: Install docker
+  gather_facts: No
+  hosts: group_minecraft
+  vars:
+    user_name: centos
+  tasks:  
+    - name: Install yum utils
+      package:
+        name: "{{ item }}"
+        state: latest
+      become: yes
+      with_items:
+        - yum-utils
+        - lvm2
+        - device-mapper-persistent-data
+        - nmap-ncat.x86_64
+        - epel-release
+        - https://centos7.iuscommunity.org/ius-release.rpm
+        - python36u
+        - python36u-pip  
+   
+    - name: Add Docker repo
+      get_url:
+        url: https://download.docker.com/linux/centos/docker-ce.repo
+        dest: /etc/yum.repos.d/docker-ce.repo
+      become: yes
+ 
+    - name: Install Docker
+      package:
+        name: docker-ce
+        state: latest
+      become: yes
+ 
+    - name: Start Docker service
+      service:
+        name: docker
+        state: started
+        enabled: yes
+      become: yes
+ 
+    - name: Add user centos docker group
+      user:
+        name: centos
+        groups: docker
+        append: yes
+      become: yes
+
+    - name: Install Docker-compose
+      yum:
+        name: docker-compose
+        state: latest
+      become: yes
+
