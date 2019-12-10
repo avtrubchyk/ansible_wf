@@ -1,7 +1,0 @@
-[group_minecraft]
-minecraft1 ansible_host=wf1.inproma.by 
-minecraft2 ansible_host=vpn.inproma.by 
-
-[group_minecraft:vars]
-ansible_user=centos 
-ansible_port=22

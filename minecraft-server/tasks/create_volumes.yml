@@ -1,0 +1,14 @@
+---
+- name: Create logs directory
+  file:
+    path: /home/centos/minecraft/logs
+    state: directory
+    owner: centos
+    group: centos
+
+- name: Create scripts directory
+  file:
+    path: /home/centos/minecraft/scripts
+    state: directory
+    owner: centos
+    group: centos

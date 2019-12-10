@@ -713,3 +713,1078 @@ The offending line appears to be:
 
 2019-11-21 19:34:54,912 p=avtru u=7932 | [WARNING]: No hosts matched, nothing to do
 
+2019-11-28 19:29:24,079 p=avtru u=4106 | PLAY [Copy settings dockerfile && docker-compose.yml] ********************************
+2019-11-28 19:29:24,103 p=avtru u=4106 | TASK [Copy Dockerfile] ***************************************************************
+2019-11-28 19:29:32,626 p=avtru u=4106 | ok: [minecraft1]
+2019-11-28 19:29:41,944 p=avtru u=4106 |  [ERROR]: User interrupted execution
+
+2019-12-07 01:45:58,405 p=avtru u=2804 | PLAY [Copy settings dockerfile && docker-compose.yml] *************************************************************************************************************************
+2019-12-07 01:45:58,429 p=avtru u=2804 | TASK [Copy Dockerfile] ********************************************************************************************************************************************************
+2019-12-07 01:46:07,377 p=avtru u=2804 | changed: [minecraft1]
+2019-12-07 01:46:07,378 p=avtru u=2804 | PLAY RECAP ********************************************************************************************************************************************************************
+2019-12-07 01:46:07,379 p=avtru u=2804 | minecraft1                 : ok=1    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2019-12-07 01:47:14,569 p=avtru u=2849 | PLAY [Install docker] *********************************************************************************************************************************************************
+2019-12-07 01:47:14,581 p=avtru u=2849 | TASK [Install yum utils] ******************************************************************************************************************************************************
+2019-12-07 01:47:29,059 p=avtru u=2849 | changed: [minecraft1] => (item=yum-utils)
+2019-12-07 01:47:38,147 p=avtru u=2849 | changed: [minecraft1] => (item=lvm2)
+2019-12-07 01:47:43,398 p=avtru u=2849 | ok: [minecraft1] => (item=device-mapper-persistent-data)
+2019-12-07 01:47:50,243 p=avtru u=2849 | changed: [minecraft1] => (item=nmap-ncat.x86_64)
+2019-12-07 01:48:00,971 p=avtru u=2849 | changed: [minecraft1] => (item=epel-release)
+2019-12-07 01:48:16,148 p=avtru u=2849 | changed: [minecraft1] => (item=https://centos7.iuscommunity.org/ius-release.rpm)
+2019-12-07 01:48:43,095 p=avtru u=2849 | changed: [minecraft1] => (item=python36u)
+2019-12-07 01:49:03,876 p=avtru u=2849 | ok: [minecraft1] => (item=python36u-pip)
+2019-12-07 01:49:03,886 p=avtru u=2849 | TASK [Add Docker repo] ********************************************************************************************************************************************************
+2019-12-07 01:49:07,554 p=avtru u=2849 | changed: [minecraft1]
+2019-12-07 01:49:07,560 p=avtru u=2849 | TASK [Install Docker] *********************************************************************************************************************************************************
+2019-12-07 01:49:55,653 p=avtru u=2849 | changed: [minecraft1]
+2019-12-07 01:49:55,663 p=avtru u=2849 | TASK [Start Docker service] ***************************************************************************************************************************************************
+2019-12-07 01:50:02,222 p=avtru u=2849 | changed: [minecraft1]
+2019-12-07 01:50:02,225 p=avtru u=2849 | TASK [Add user centos docker group] *******************************************************************************************************************************************
+2019-12-07 01:50:05,000 p=avtru u=2849 | changed: [minecraft1]
+2019-12-07 01:50:05,009 p=avtru u=2849 | TASK [Install Docker-compose] *************************************************************************************************************************************************
+2019-12-07 01:50:24,993 p=avtru u=2849 | changed: [minecraft1]
+2019-12-07 01:50:24,995 p=avtru u=2849 | PLAY RECAP ********************************************************************************************************************************************************************
+2019-12-07 01:50:24,995 p=avtru u=2849 | minecraft1                 : ok=6    changed=6    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2019-12-07 01:56:14,836 p=avtru u=3131 | minecraft1 | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python"
+    }, 
+    "changed": false, 
+    "ping": "pong"
+}
+2019-12-07 01:56:28,231 p=avtru u=3153 | [WARNING]: Could not match supplied host pattern, ignoring: hosts
+
+2019-12-07 01:56:28,231 p=avtru u=3153 | [WARNING]: No hosts matched, nothing to do
+
+2019-12-09 11:00:55,983 p=avtru u=5891 | ERROR! Syntax Error while loading YAML.
+  mapping values are not allowed in this context
+
+The error appears to be in '/home/avtru/ansible_wf/copy-playbooke.yml': line 8, column 20, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+    - name: Push dir
+        synchronize: src=~/ansible_wf/files dest=/tmp
+                   ^ here
+
+2019-12-09 11:02:35,371 p=avtru u=5909 | ERROR! Syntax Error while loading YAML.
+  mapping values are not allowed in this context
+
+The error appears to be in '/home/avtru/ansible_wf/copy-playbooke.yml': line 8, column 20, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+    - name: Push dir
+        synchronize: src=/home/avtru/ansible_wf/files dest=/tmp
+                   ^ here
+
+2019-12-09 11:03:56,911 p=avtru u=5917 | PLAY [Install docker] ****************************************************************************************************************************************************************************************************************
+2019-12-09 11:03:56,932 p=avtru u=5917 | TASK [Push dir] **********************************************************************************************************************************************************************************************************************
+2019-12-09 11:03:58,203 p=avtru u=5917 | fatal: [minecraft1]: FAILED! => {"changed": false, "cmd": "/usr/bin/rsync --delay-updates -F --compress --archive --rsh=/usr/bin/ssh -S none -o Port=22 -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null --out-format=<<CHANGED>>%i %n%L /home/avtru/ansible_wf/files centos@wf1.inproma.by:/tmp<F2>", "msg": "Warning: Permanently added 'wf1.inproma.by,5.188.134.182' (ECDSA) to the list of known hosts.\r\nbash: -c: line 0: syntax error near unexpected token `newline'\nbash: -c: line 0: `rsync --server -logDtprze.iLsfxC --log-format=%i --delay-updates . /tmp<F2>'\nrsync: connection unexpectedly closed (0 bytes received so far) [sender]\nrsync error: error in rsync protocol data stream (code 12) at io.c(235) [sender=3.1.2]\n", "rc": 12}
+2019-12-09 11:03:58,205 p=avtru u=5917 | PLAY RECAP ***************************************************************************************************************************************************************************************************************************
+2019-12-09 11:03:58,205 p=avtru u=5917 | minecraft1                 : ok=0    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2019-12-09 11:04:27,541 p=avtru u=5944 | ERROR! Syntax Error while loading YAML.
+  mapping values are not allowed in this context
+
+The error appears to be in '/home/avtru/ansible_wf/copy-playbooke.yml': line 2, column 15, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+- name:opy Dir
+  gather_facts: No
+              ^ here
+
+2019-12-09 11:05:26,950 p=avtru u=5953 | PLAY [copy Dir] **********************************************************************************************************************************************************************************************************************
+2019-12-09 11:05:26,961 p=avtru u=5953 | TASK [Push dir] **********************************************************************************************************************************************************************************************************************
+2019-12-09 11:05:28,236 p=avtru u=5953 | changed: [minecraft1]
+2019-12-09 11:05:28,238 p=avtru u=5953 | PLAY RECAP ***************************************************************************************************************************************************************************************************************************
+2019-12-09 11:05:28,238 p=avtru u=5953 | minecraft1                 : ok=1    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2019-12-09 11:06:45,952 p=avtru u=5988 | PLAY [copy Dir] **********************************************************************************************************************************************************************************************************************
+2019-12-09 11:06:45,963 p=avtru u=5988 | TASK [Push dir] **********************************************************************************************************************************************************************************************************************
+2019-12-09 11:06:47,229 p=avtru u=5988 | ok: [minecraft1]
+2019-12-09 11:06:47,230 p=avtru u=5988 | PLAY RECAP ***************************************************************************************************************************************************************************************************************************
+2019-12-09 11:06:47,231 p=avtru u=5988 | minecraft1                 : ok=1    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2019-12-09 11:11:20,423 p=avtru u=6021 | PLAY [copy Dir] **********************************************************************************************************************************************************************************************************************
+2019-12-09 11:11:20,434 p=avtru u=6021 | TASK [Push dir] **********************************************************************************************************************************************************************************************************************
+2019-12-09 11:11:21,720 p=avtru u=6021 | changed: [minecraft1]
+2019-12-09 11:11:21,721 p=avtru u=6021 | PLAY RECAP ***************************************************************************************************************************************************************************************************************************
+2019-12-09 11:11:21,722 p=avtru u=6021 | minecraft1                 : ok=1    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2019-12-09 11:18:10,182 p=avtru u=6814 | PLAY [copy Dir] **********************************************************************************************************************************************************************************************************************
+2019-12-09 11:18:10,192 p=avtru u=6814 | TASK [Push dir] **********************************************************************************************************************************************************************************************************************
+2019-12-09 11:18:11,443 p=avtru u=6814 | changed: [minecraft1]
+2019-12-09 11:18:11,445 p=avtru u=6814 | PLAY RECAP ***************************************************************************************************************************************************************************************************************************
+2019-12-09 11:18:11,445 p=avtru u=6814 | minecraft1                 : ok=1    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2019-12-09 11:19:24,993 p=avtru u=6852 | PLAY [copy Dir] **********************************************************************************************************************************************************************************************************************
+2019-12-09 11:19:25,004 p=avtru u=6852 | TASK [Push dir] **********************************************************************************************************************************************************************************************************************
+2019-12-09 11:19:26,293 p=avtru u=6852 | changed: [minecraft1]
+2019-12-09 11:19:26,294 p=avtru u=6852 | PLAY RECAP ***************************************************************************************************************************************************************************************************************************
+2019-12-09 11:19:26,294 p=avtru u=6852 | minecraft1                 : ok=1    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2019-12-09 11:24:59,028 p=avtru u=6899 | PLAY [copy Dir] **********************************************************************************************************************************************************************************************************************
+2019-12-09 11:24:59,039 p=avtru u=6899 | TASK [Push dir] **********************************************************************************************************************************************************************************************************************
+2019-12-09 11:25:00,328 p=avtru u=6899 | changed: [minecraft1]
+2019-12-09 11:25:00,330 p=avtru u=6899 | PLAY RECAP ***************************************************************************************************************************************************************************************************************************
+2019-12-09 11:25:00,330 p=avtru u=6899 | minecraft1                 : ok=1    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2019-12-09 11:25:59,206 p=avtru u=6926 | PLAY [copy Dir] **********************************************************************************************************************************************************************************************************************
+2019-12-09 11:25:59,217 p=avtru u=6926 | TASK [Push dir] **********************************************************************************************************************************************************************************************************************
+2019-12-09 11:26:00,520 p=avtru u=6926 | changed: [minecraft1]
+2019-12-09 11:26:00,522 p=avtru u=6926 | PLAY RECAP ***************************************************************************************************************************************************************************************************************************
+2019-12-09 11:26:00,522 p=avtru u=6926 | minecraft1                 : ok=1    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2019-12-09 11:29:02,298 p=avtru u=6967 | PLAY [copy Dir] **********************************************************************************************************************************************************************************************************************
+2019-12-09 11:29:02,309 p=avtru u=6967 | TASK [Push dir] **********************************************************************************************************************************************************************************************************************
+2019-12-09 11:29:03,601 p=avtru u=6967 | changed: [minecraft1]
+2019-12-09 11:29:03,603 p=avtru u=6967 | PLAY RECAP ***************************************************************************************************************************************************************************************************************************
+2019-12-09 11:29:03,603 p=avtru u=6967 | minecraft1                 : ok=1    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2019-12-09 11:46:39,657 p=avtru u=7030 | PLAY [copy Dir] **********************************************************************************************************************************************************************************************************************
+2019-12-09 11:46:39,668 p=avtru u=7030 | TASK [Push dir] **********************************************************************************************************************************************************************************************************************
+2019-12-09 11:46:51,183 p=avtru u=7030 | fatal: [minecraft1]: FAILED! => {"changed": false, "cmd": "/usr/bin/rsync --delay-updates -F --compress --archive --rsh=/usr/bin/ssh -S none -o Port=22 -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null --out-format=<<CHANGED>>%i %n%L /home/avtru/ansible_wf/files/ centos@wf1.inproma.by:/home/centos", "msg": "Warning: Permanently added 'wf1.inproma.by,5.188.134.182' (ECDSA) to the list of known hosts.\r\ncentos@wf1.inproma.by: Permission denied (publickey,gssapi-keyex,gssapi-with-mic).\r\nrsync: connection unexpectedly closed (0 bytes received so far) [sender]\nrsync error: unexplained error (code 255) at io.c(235) [sender=3.1.2]\n", "rc": 255}
+2019-12-09 11:46:51,184 p=avtru u=7030 | PLAY RECAP ***************************************************************************************************************************************************************************************************************************
+2019-12-09 11:46:51,185 p=avtru u=7030 | minecraft1                 : ok=0    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2019-12-09 11:47:01,967 p=avtru u=7056 | PLAY [copy Dir] **********************************************************************************************************************************************************************************************************************
+2019-12-09 11:47:01,978 p=avtru u=7056 | TASK [Push dir] **********************************************************************************************************************************************************************************************************************
+2019-12-09 11:47:07,869 p=avtru u=7056 | fatal: [minecraft1]: FAILED! => {"changed": false, "cmd": "/usr/bin/rsync --delay-updates -F --compress --archive --rsh=/usr/bin/ssh -S none -o Port=22 -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null --out-format=<<CHANGED>>%i %n%L /home/avtru/ansible_wf/files/ centos@wf1.inproma.by:/home/centos", "msg": "Warning: Permanently added 'wf1.inproma.by,5.188.134.182' (ECDSA) to the list of known hosts.\r\ncentos@wf1.inproma.by: Permission denied (publickey,gssapi-keyex,gssapi-with-mic).\r\nrsync: connection unexpectedly closed (0 bytes received so far) [sender]\nrsync error: unexplained error (code 255) at io.c(235) [sender=3.1.2]\n", "rc": 255}
+2019-12-09 11:47:07,870 p=avtru u=7056 | PLAY RECAP ***************************************************************************************************************************************************************************************************************************
+2019-12-09 11:47:07,870 p=avtru u=7056 | minecraft1                 : ok=0    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2019-12-09 11:48:53,315 p=avtru u=7101 | PLAY [copy Dir] **********************************************************************************************************************************************************************************************************************
+2019-12-09 11:48:53,327 p=avtru u=7101 | TASK [Push dir] **********************************************************************************************************************************************************************************************************************
+2019-12-09 11:49:06,680 p=avtru u=7101 | fatal: [minecraft1]: FAILED! => {"changed": false, "cmd": "/usr/bin/rsync --delay-updates -F --compress --archive --rsh=/usr/bin/ssh -S none -o Port=22 -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null --out-format=<<CHANGED>>%i %n%L /home/avtru/ansible_wf/files/ centos@wf1.inproma.by:/home/centos", "msg": "Warning: Permanently added 'wf1.inproma.by,5.188.134.182' (ECDSA) to the list of known hosts.\r\ncentos@wf1.inproma.by: Permission denied (publickey,gssapi-keyex,gssapi-with-mic).\r\nrsync: connection unexpectedly closed (0 bytes received so far) [sender]\nrsync error: unexplained error (code 255) at io.c(235) [sender=3.1.2]\n", "rc": 255}
+2019-12-09 11:49:06,681 p=avtru u=7101 | PLAY RECAP ***************************************************************************************************************************************************************************************************************************
+2019-12-09 11:49:06,682 p=avtru u=7101 | minecraft1                 : ok=0    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2019-12-09 11:56:19,004 p=avtru u=7136 | PLAY [copy Dir] **********************************************************************************************************************************************************************************************************************
+2019-12-09 11:56:19,016 p=avtru u=7136 | TASK [Push dir] **********************************************************************************************************************************************************************************************************************
+2019-12-09 11:56:20,241 p=avtru u=7136 | changed: [minecraft1]
+2019-12-09 11:56:20,243 p=avtru u=7136 | PLAY RECAP ***************************************************************************************************************************************************************************************************************************
+2019-12-09 11:56:20,243 p=avtru u=7136 | minecraft1                 : ok=1    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2019-12-09 12:03:05,188 p=avtru u=7179 | PLAY [Install docker] ****************************************************************************************************************************************************************************************************************
+2019-12-09 12:03:05,201 p=avtru u=7179 | TASK [Install yum utils] *************************************************************************************************************************************************************************************************************
+2019-12-09 12:03:11,695 p=avtru u=7179 | failed: [minecraft1] (item=yum-utils) => {"ansible_loop_var": "item", "item": "yum-utils", "msg": "Failed to connect to the host via ssh: @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\r\n@    WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!     @\r\n@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\r\nIT IS POSSIBLE THAT SOMEONE IS DOING SOMETHING NASTY!\r\nSomeone could be eavesdropping on you right now (man-in-the-middle attack)!\r\nIt is also possible that a host key has just been changed.\r\nThe fingerprint for the ECDSA key sent by the remote host is\nSHA256:FJDMssMIHi0LAiJf+h8xtlO9bLd0y6ZKBsEOu6Q+rZM.\r\nPlease contact your system administrator.\r\nAdd correct host key in /home/avtru/.ssh/known_hosts to get rid of this message.\r\nOffending ECDSA key in /home/avtru/.ssh/known_hosts:4\r\n  remove with:\r\n  ssh-keygen -f \"/home/avtru/.ssh/known_hosts\" -R \"wf1.inproma.by\"\r\nChallenge/response authentication is disabled to avoid man-in-the-middle attacks.\r\ncentos@wf1.inproma.by: Permission denied (publickey,gssapi-keyex,gssapi-with-mic).", "unreachable": true}
+2019-12-09 12:03:16,553 p=avtru u=7179 |  [ERROR]: User interrupted execution
+
+2019-12-09 12:04:22,655 p=avtru u=7208 | PLAY [Install docker] ****************************************************************************************************************************************************************************************************************
+2019-12-09 12:04:22,666 p=avtru u=7208 | TASK [Install yum utils] *************************************************************************************************************************************************************************************************************
+2019-12-09 12:04:34,741 p=avtru u=7208 |  [ERROR]: User interrupted execution
+
+2019-12-09 12:06:50,789 p=avtru u=2929 | PLAY [Install docker] ******************************************************************************************
+2019-12-09 12:06:50,811 p=avtru u=2929 | TASK [Install yum utils] ***************************************************************************************
+2019-12-09 12:07:03,931 p=avtru u=2929 |  [ERROR]: User interrupted execution
+
+2019-12-09 12:07:26,740 p=avtru u=3094 | PLAY [Install docker] ******************************************************************************************
+2019-12-09 12:07:26,752 p=avtru u=3094 | TASK [Install yum utils] ***************************************************************************************
+2019-12-09 12:07:32,529 p=avtru u=3094 | failed: [minecraft1] (item=yum-utils) => {"ansible_loop_var": "item", "item": "yum-utils", "msg": "Failed to connect to the host via ssh: @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\r\n@    WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!     @\r\n@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\r\nIT IS POSSIBLE THAT SOMEONE IS DOING SOMETHING NASTY!\r\nSomeone could be eavesdropping on you right now (man-in-the-middle attack)!\r\nIt is also possible that a host key has just been changed.\r\nThe fingerprint for the ECDSA key sent by the remote host is\nSHA256:FJDMssMIHi0LAiJf+h8xtlO9bLd0y6ZKBsEOu6Q+rZM.\r\nPlease contact your system administrator.\r\nAdd correct host key in /home/avtru/.ssh/known_hosts to get rid of this message.\r\nOffending ECDSA key in /home/avtru/.ssh/known_hosts:4\r\n  remove with:\r\n  ssh-keygen -f \"/home/avtru/.ssh/known_hosts\" -R \"wf1.inproma.by\"\r\nChallenge/response authentication is disabled to avoid man-in-the-middle attacks.\r\ncentos@wf1.inproma.by: Permission denied (publickey,gssapi-keyex,gssapi-with-mic).", "unreachable": true}
+2019-12-09 12:07:35,754 p=avtru u=3094 |  [ERROR]: User interrupted execution
+
+2019-12-09 14:49:02,462 p=avtru u=5695 | PLAY [copy Dir] **********************************************************************
+2019-12-09 14:49:02,480 p=avtru u=5695 | TASK [Push dir] **********************************************************************
+2019-12-09 14:49:06,812 p=avtru u=5695 | changed: [minecraft1]
+2019-12-09 14:49:06,814 p=avtru u=5695 | PLAY RECAP ***************************************************************************
+2019-12-09 14:49:06,814 p=avtru u=5695 | minecraft1                 : ok=1    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2019-12-09 14:56:48,907 p=avtru u=6101 | PLAY [copy Dir] **********************************************************************
+2019-12-09 14:56:48,920 p=avtru u=6101 | TASK [Push dir] **********************************************************************
+2019-12-09 14:57:01,242 p=avtru u=6101 | fatal: [minecraft1]: FAILED! => {"changed": false, "cmd": "/usr/bin/rsync --delay-updates -F --compress --archive --rsh=/usr/bin/ssh -S none -o Port=22 -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null --out-format=<<CHANGED>>%i %n%L /home/avtru/ansible_wf/files/ centos@wf1.inproma.by:/home/centos", "msg": "Warning: Permanently added 'wf1.inproma.by,5.188.134.182' (ECDSA) to the list of known hosts.\r\ncentos@wf1.inproma.by: Permission denied (publickey,gssapi-keyex,gssapi-with-mic).\r\nrsync: connection unexpectedly closed (0 bytes received so far) [sender]\nrsync error: unexplained error (code 255) at io.c(235) [sender=3.1.2]\n", "rc": 255}
+2019-12-09 14:57:01,243 p=avtru u=6101 | PLAY RECAP ***************************************************************************
+2019-12-09 14:57:01,244 p=avtru u=6101 | minecraft1                 : ok=0    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2019-12-09 15:09:13,050 p=avtru u=6708 | PLAY [copy Dir] ***************************************************************************************************************************************************************
+2019-12-09 15:09:13,069 p=avtru u=6708 | TASK [Push dir] ***************************************************************************************************************************************************************
+2019-12-09 15:09:13,232 p=avtru u=6708 | fatal: [minecraft1]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: ssh: connect to host wf1.inproma.by port 22: Connection refused", "unreachable": true}
+2019-12-09 15:09:13,233 p=avtru u=6708 | PLAY RECAP ********************************************************************************************************************************************************************
+2019-12-09 15:09:13,234 p=avtru u=6708 | minecraft1                 : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+2019-12-09 15:10:44,753 p=avtru u=6749 | PLAY [copy Dir] **********************************************************************
+2019-12-09 15:10:44,764 p=avtru u=6749 | TASK [Push dir] **********************************************************************
+2019-12-09 15:11:09,744 p=avtru u=6749 | changed: [minecraft1]
+2019-12-09 15:11:09,746 p=avtru u=6749 | PLAY RECAP ***************************************************************************
+2019-12-09 15:11:09,748 p=avtru u=6749 | minecraft1                 : ok=1    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2019-12-09 15:12:48,374 p=avtru u=6831 | PLAY [Install docker] **********************************************************
+2019-12-09 15:12:48,386 p=avtru u=6831 | TASK [Install yum utils] *******************************************************
+2019-12-09 15:13:14,929 p=avtru u=6831 | changed: [minecraft1] => (item=yum-utils)
+2019-12-09 15:20:25,930 p=avtru u=6831 | An exception occurred during task execution. To see the full traceback, use -vvv. The error was: OSError: 110
+2019-12-09 15:20:25,930 p=avtru u=6831 | fatal: [minecraft1]: FAILED! => {"msg": "Unexpected failure during module execution.", "stdout": ""}
+2019-12-09 15:20:25,931 p=avtru u=6831 | PLAY RECAP *********************************************************************
+2019-12-09 15:20:25,931 p=avtru u=6831 | minecraft1                 : ok=0    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2019-12-09 15:21:58,466 p=avtru u=7286 | PLAY [Install docker] *********************************************************************************************************************************************************
+2019-12-09 15:21:58,478 p=avtru u=7286 | TASK [Install yum utils] ******************************************************************************************************************************************************
+2019-12-09 15:22:21,861 p=avtru u=7286 | ok: [minecraft1] => (item=yum-utils)
+2019-12-09 17:07:15,824 p=avtru u=7286 |  [ERROR]: User interrupted execution
+
+2019-12-09 17:07:25,640 p=avtru u=7657 | PLAY [Install docker] *********************************************************************************************************************************************************
+2019-12-09 17:07:25,652 p=avtru u=7657 | TASK [Install yum utils] ******************************************************************************************************************************************************
+2019-12-09 17:23:00,044 p=avtru u=7657 | ok: [minecraft1] => (item=yum-utils)
+2019-12-09 17:23:08,607 p=avtru u=7657 | changed: [minecraft1] => (item=lvm2)
+2019-12-09 17:23:13,727 p=avtru u=7657 | ok: [minecraft1] => (item=device-mapper-persistent-data)
+2019-12-09 17:23:20,472 p=avtru u=7657 | changed: [minecraft1] => (item=nmap-ncat.x86_64)
+2019-12-09 17:23:26,724 p=avtru u=7657 | changed: [minecraft1] => (item=epel-release)
+2019-12-09 17:23:37,954 p=avtru u=7657 | changed: [minecraft1] => (item=https://centos7.iuscommunity.org/ius-release.rpm)
+2019-12-09 17:23:52,067 p=avtru u=7657 | changed: [minecraft1] => (item=python36u)
+2019-12-09 17:24:00,145 p=avtru u=7657 | ok: [minecraft1] => (item=python36u-pip)
+2019-12-09 17:24:00,151 p=avtru u=7657 | TASK [Add Docker repo] ********************************************************************************************************************************************************
+2019-12-09 17:24:02,908 p=avtru u=7657 | changed: [minecraft1]
+2019-12-09 17:24:02,911 p=avtru u=7657 | TASK [Install Docker] *********************************************************************************************************************************************************
+2019-12-09 17:24:36,166 p=avtru u=7657 | changed: [minecraft1]
+2019-12-09 17:24:36,174 p=avtru u=7657 | TASK [Start Docker service] ***************************************************************************************************************************************************
+2019-12-09 17:24:42,463 p=avtru u=7657 | changed: [minecraft1]
+2019-12-09 17:24:42,466 p=avtru u=7657 | TASK [Add user centos docker group] *******************************************************************************************************************************************
+2019-12-09 17:24:45,339 p=avtru u=7657 | changed: [minecraft1]
+2019-12-09 17:24:45,349 p=avtru u=7657 | TASK [Install Docker-compose] *************************************************************************************************************************************************
+2019-12-09 17:24:57,516 p=avtru u=7657 | changed: [minecraft1]
+2019-12-09 17:24:57,518 p=avtru u=7657 | PLAY RECAP ********************************************************************************************************************************************************************
+2019-12-09 17:24:57,518 p=avtru u=7657 | minecraft1                 : ok=6    changed=6    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2019-12-09 20:25:46,077 p=avtru u=2789 | PLAY [Install docker] *********************************************************************************************************************************************************
+2019-12-09 20:25:46,098 p=avtru u=2789 | TASK [Install yum utils] ******************************************************************************************************************************************************
+2019-12-09 20:25:49,445 p=avtru u=2789 | failed: [minecraft1] (item=yum-utils) => {"ansible_loop_var": "item", "item": "yum-utils", "msg": "Failed to connect to the host via ssh: ssh: connect to host wf1.inproma.by port 22: No route to host", "unreachable": true}
+2019-12-09 20:25:49,447 p=avtru u=2789 | fatal: [minecraft1]: UNREACHABLE! => {"changed": false, "msg": "All items completed", "results": [{"ansible_loop_var": "item", "item": "yum-utils", "msg": "Failed to connect to the host via ssh: ssh: connect to host wf1.inproma.by port 22: No route to host", "unreachable": true}]}
+2019-12-09 20:25:49,448 p=avtru u=2789 | PLAY RECAP ********************************************************************************************************************************************************************
+2019-12-09 20:25:49,448 p=avtru u=2789 | minecraft1                 : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+2019-12-09 20:44:08,369 p=avtru u=3679 | [WARNING]: Could not match supplied host pattern, ignoring: docker
+
+2019-12-09 20:44:08,370 p=avtru u=3679 | PLAY [Install Docker] ****************************************************************
+2019-12-09 20:44:08,370 p=avtru u=3679 | skipping: no hosts matched
+2019-12-09 20:44:08,370 p=avtru u=3679 | PLAY RECAP ***************************************************************************
+2019-12-09 20:46:23,206 p=avtru u=3761 | PLAY [Install Docker] ****************************************************************
+2019-12-09 20:46:23,223 p=avtru u=3761 | TASK [Install yum utils] *************************************************************
+2019-12-09 20:46:26,563 p=avtru u=3761 | fatal: [minecraft1]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: ssh: connect to host wf1.inproma.by port 22: No route to host", "unreachable": true}
+2019-12-09 20:46:26,565 p=avtru u=3761 | PLAY RECAP ***************************************************************************
+2019-12-09 20:46:26,565 p=avtru u=3761 | minecraft1                 : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+2019-12-09 20:48:56,373 p=avtru u=3814 | PLAY [Install Docker] ****************************************************************
+2019-12-09 20:48:56,385 p=avtru u=3814 | TASK [Install yum utils] *************************************************************
+2019-12-09 20:48:59,672 p=avtru u=3814 | failed: [minecraft1] (item=yum-utils) => {"ansible_loop_var": "item", "item": "yum-utils", "msg": "Failed to connect to the host via ssh: ssh: connect to host wf1.inproma.by port 22: No route to host", "unreachable": true}
+2019-12-09 20:49:02,945 p=avtru u=3814 | failed: [minecraft1] (item=lvm2) => {"ansible_loop_var": "item", "item": "lvm2", "msg": "Failed to connect to the host via ssh: ssh: connect to host wf1.inproma.by port 22: No route to host", "unreachable": true}
+2019-12-09 20:49:06,314 p=avtru u=3814 | failed: [minecraft1] (item=device-mapper-persistent-data) => {"ansible_loop_var": "item", "item": "device-mapper-persistent-data", "msg": "Failed to connect to the host via ssh: ssh: connect to host wf1.inproma.by port 22: No route to host", "unreachable": true}
+2019-12-09 20:49:06,316 p=avtru u=3814 | fatal: [minecraft1]: UNREACHABLE! => {"changed": false, "msg": "All items completed", "results": [{"ansible_loop_var": "item", "item": "yum-utils", "msg": "Failed to connect to the host via ssh: ssh: connect to host wf1.inproma.by port 22: No route to host", "unreachable": true}, {"ansible_loop_var": "item", "item": "lvm2", "msg": "Failed to connect to the host via ssh: ssh: connect to host wf1.inproma.by port 22: No route to host", "unreachable": true}, {"ansible_loop_var": "item", "item": "device-mapper-persistent-data", "msg": "Failed to connect to the host via ssh: ssh: connect to host wf1.inproma.by port 22: No route to host", "unreachable": true}]}
+2019-12-09 20:49:06,317 p=avtru u=3814 | PLAY RECAP ***************************************************************************
+2019-12-09 20:49:06,318 p=avtru u=3814 | minecraft1                 : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+2019-12-09 20:52:03,794 p=avtru u=3898 | PLAY [Install Docker] ****************************************************************
+2019-12-09 20:52:03,805 p=avtru u=3898 | TASK [Install yum utils] *************************************************************
+2019-12-09 20:52:23,858 p=avtru u=3898 | changed: [minecraft1] => (item=yum-utils)
+2019-12-09 20:52:36,629 p=avtru u=3898 | changed: [minecraft1] => (item=lvm2)
+2019-12-09 20:52:46,734 p=avtru u=3898 | ok: [minecraft1] => (item=device-mapper-persistent-data)
+2019-12-09 20:52:46,739 p=avtru u=3898 | TASK [Add Docker repo] ***************************************************************
+2019-12-09 20:52:54,012 p=avtru u=3898 | fatal: [minecraft1]: FAILED! => {"changed": false, "checksum_dest": null, "checksum_src": "b9cab0cb1ddbffb77de51ba8838ea60335a229f6", "dest": "/etc/yum.repos.d/docker-ce.repo", "elapsed": 0, "msg": "Destination /etc/yum.repos.d is not writable", "src": "/home/centos/.ansible/tmp/ansible-tmp-1575913966.76-127169240111067/tmpakQoTC", "url": "https://download.docker.com/linux/centos/docker-ce.repo"}
+2019-12-09 20:52:54,014 p=avtru u=3898 | PLAY RECAP ***************************************************************************
+2019-12-09 20:52:54,014 p=avtru u=3898 | minecraft1                 : ok=1    changed=1    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2019-12-09 20:53:53,219 p=avtru u=3996 | PLAY [Install Docker] ****************************************************************
+2019-12-09 20:53:53,231 p=avtru u=3996 | TASK [Install yum utils] *************************************************************
+2019-12-09 20:54:05,007 p=avtru u=3996 | ok: [minecraft1] => (item=yum-utils)
+2019-12-09 20:54:12,474 p=avtru u=3996 | ok: [minecraft1] => (item=lvm2)
+2019-12-09 20:54:12,480 p=avtru u=3996 | TASK [Add Docker repo] ***************************************************************
+2019-12-09 20:54:16,260 p=avtru u=3996 | changed: [minecraft1]
+2019-12-09 20:54:16,264 p=avtru u=3996 | TASK [Install Docker] ****************************************************************
+2019-12-09 20:54:25,664 p=avtru u=3996 | fatal: [minecraft1]: FAILED! => {"changed": true, "changes": {"installed": ["docker-ce"], "updated": []}, "msg": "You need to be root to perform this command.\n", "rc": 1, "results": ["Loaded plugins: fastestmirror\n"]}
+2019-12-09 20:54:25,665 p=avtru u=3996 | PLAY RECAP ***************************************************************************
+2019-12-09 20:54:25,666 p=avtru u=3996 | minecraft1                 : ok=2    changed=1    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2019-12-09 20:56:10,590 p=avtru u=4084 | PLAY [Install Docker] ****************************************************************
+2019-12-09 20:56:10,602 p=avtru u=4084 | TASK [Install yum utils] *************************************************************
+2019-12-09 20:56:18,654 p=avtru u=4084 | ok: [minecraft1] => (item=yum-utils)
+2019-12-09 20:56:23,556 p=avtru u=4084 | ok: [minecraft1] => (item=lvm2)
+2019-12-09 20:56:23,561 p=avtru u=4084 | TASK [Add Docker repo] ***************************************************************
+2019-12-09 20:56:26,343 p=avtru u=4084 | ok: [minecraft1]
+2019-12-09 20:56:26,347 p=avtru u=4084 | TASK [Install Docker] ****************************************************************
+2019-12-09 20:57:01,209 p=avtru u=4084 | changed: [minecraft1]
+2019-12-09 20:57:01,216 p=avtru u=4084 | TASK [Start Docker service] **********************************************************
+2019-12-09 20:57:10,819 p=avtru u=4084 | changed: [minecraft1]
+2019-12-09 20:57:10,822 p=avtru u=4084 | TASK [Add user centos docker group] **************************************************
+2019-12-09 20:57:13,696 p=avtru u=4084 | changed: [minecraft1]
+2019-12-09 20:57:13,701 p=avtru u=4084 | TASK [Install Docker-compose] ********************************************************
+2019-12-09 20:57:19,720 p=avtru u=4084 | fatal: [minecraft1]: FAILED! => {"ansible_facts": {"pkg_mgr": "yum"}, "changed": false, "msg": "No package matching 'docker-compose' found available, installed or updated", "rc": 126, "results": ["No package matching 'docker-compose' found available, installed or updated"]}
+2019-12-09 20:57:19,722 p=avtru u=4084 | PLAY RECAP ***************************************************************************
+2019-12-09 20:57:19,722 p=avtru u=4084 | minecraft1                 : ok=5    changed=3    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2019-12-09 21:00:07,314 p=avtru u=4215 | PLAY [Install Docker] ****************************************************************
+2019-12-09 21:00:07,325 p=avtru u=4215 | TASK [Install yum utils] *************************************************************
+2019-12-09 21:00:16,987 p=avtru u=4215 | ok: [minecraft1] => (item=yum-utils)
+2019-12-09 21:00:24,530 p=avtru u=4215 | ok: [minecraft1] => (item=lvm2)
+2019-12-09 21:00:33,937 p=avtru u=4215 | changed: [minecraft1] => (item=https://centos7.iuscommunity.org/ius-release.rpm)
+2019-12-09 21:00:33,944 p=avtru u=4215 | TASK [Add Docker repo] ***************************************************************
+2019-12-09 21:00:37,720 p=avtru u=4215 | ok: [minecraft1]
+2019-12-09 21:00:37,724 p=avtru u=4215 | TASK [Install Docker] ****************************************************************
+2019-12-09 21:00:59,800 p=avtru u=4215 | ok: [minecraft1]
+2019-12-09 21:00:59,804 p=avtru u=4215 | TASK [Start Docker service] **********************************************************
+2019-12-09 21:01:05,282 p=avtru u=4215 | ok: [minecraft1]
+2019-12-09 21:01:05,286 p=avtru u=4215 | TASK [Add user centos docker group] **************************************************
+2019-12-09 21:01:08,503 p=avtru u=4215 | ok: [minecraft1]
+2019-12-09 21:01:08,508 p=avtru u=4215 | TASK [Install Docker-compose] ********************************************************
+2019-12-09 21:01:46,362 p=avtru u=4215 | changed: [minecraft1]
+2019-12-09 21:01:46,364 p=avtru u=4215 | PLAY RECAP ***************************************************************************
+2019-12-09 21:01:46,364 p=avtru u=4215 | minecraft1                 : ok=6    changed=2    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2019-12-09 21:18:58,282 p=avtru u=4677 | PLAY [Install Docker] ****************************************************************
+2019-12-09 21:18:58,293 p=avtru u=4677 | TASK [Install yum utils] *************************************************************
+2019-12-09 21:19:11,748 p=avtru u=4677 | changed: [minecraft1] => (item=yum-utils)
+2019-12-09 21:19:21,349 p=avtru u=4677 | changed: [minecraft1] => (item=lvm2)
+2019-12-09 21:19:29,820 p=avtru u=4677 | changed: [minecraft1] => (item=https://centos7.iuscommunity.org/ius-release.rpm)
+2019-12-09 21:19:29,826 p=avtru u=4677 | TASK [Add Docker repo] ***************************************************************
+2019-12-09 21:19:33,592 p=avtru u=4677 | changed: [minecraft1]
+2019-12-09 21:19:33,596 p=avtru u=4677 | TASK [Install Docker] ****************************************************************
+2019-12-09 21:20:10,939 p=avtru u=4677 | changed: [minecraft1]
+2019-12-09 21:20:10,945 p=avtru u=4677 | TASK [Start Docker service] **********************************************************
+2019-12-09 21:20:18,387 p=avtru u=4677 | changed: [minecraft1]
+2019-12-09 21:20:18,391 p=avtru u=4677 | TASK [Add user centos docker group] **************************************************
+2019-12-09 21:20:22,002 p=avtru u=4677 | changed: [minecraft1]
+2019-12-09 21:20:22,007 p=avtru u=4677 | TASK [Install Docker-compose] ********************************************************
+2019-12-09 21:20:40,470 p=avtru u=4677 | changed: [minecraft1]
+2019-12-09 21:20:40,472 p=avtru u=4677 | PLAY RECAP ***************************************************************************
+2019-12-09 21:20:40,472 p=avtru u=4677 | minecraft1                 : ok=6    changed=6    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2019-12-09 21:28:58,727 p=avtru u=4908 | PLAY [copy Dir] **********************************************************************
+2019-12-09 21:28:58,743 p=avtru u=4908 | TASK [Push dir] **********************************************************************
+2019-12-09 21:29:16,730 p=avtru u=4908 | changed: [minecraft1]
+2019-12-09 21:29:16,733 p=avtru u=4908 | PLAY RECAP ***************************************************************************
+2019-12-09 21:29:16,735 p=avtru u=4908 | minecraft1                 : ok=1    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2019-12-09 21:46:22,386 p=avtru u=5321 | PLAY [copy Dir] **********************************************************************
+2019-12-09 21:46:22,398 p=avtru u=5321 | TASK [Push dir] **********************************************************************
+2019-12-09 21:46:51,829 p=avtru u=5321 | changed: [minecraft1]
+2019-12-09 21:46:51,832 p=avtru u=5321 | PLAY RECAP ***************************************************************************
+2019-12-09 21:46:51,833 p=avtru u=5321 | minecraft1                 : ok=1    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2019-12-09 22:18:38,051 p=avtru u=6043 | PLAY [copy Dir] **********************************************************************
+2019-12-09 22:18:38,063 p=avtru u=6043 | TASK [Push dir] **********************************************************************
+2019-12-09 22:18:57,963 p=avtru u=6043 | changed: [minecraft1]
+2019-12-09 22:18:57,966 p=avtru u=6043 | PLAY RECAP ***************************************************************************
+2019-12-09 22:18:57,966 p=avtru u=6043 | minecraft1                 : ok=1    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2019-12-09 22:40:56,067 p=avtru u=6499 | PLAY [copy Dir] **********************************************************************
+2019-12-09 22:40:56,078 p=avtru u=6499 | TASK [Push dir] **********************************************************************
+2019-12-09 22:41:20,965 p=avtru u=6499 | changed: [minecraft1]
+2019-12-09 22:41:20,968 p=avtru u=6499 | PLAY RECAP ***************************************************************************
+2019-12-09 22:41:20,968 p=avtru u=6499 | minecraft1                 : ok=1    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2019-12-09 23:04:37,130 p=avtru u=7059 | PLAY [copy Dir] **********************************************************************
+2019-12-09 23:04:37,144 p=avtru u=7059 | TASK [Push dir] **********************************************************************
+2019-12-09 23:04:54,277 p=avtru u=7059 | changed: [minecraft1]
+2019-12-09 23:04:54,279 p=avtru u=7059 | PLAY RECAP ***************************************************************************
+2019-12-09 23:04:54,279 p=avtru u=7059 | minecraft1                 : ok=1    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2019-12-10 01:01:43,170 p=avtru u=9376 | PLAY [copy Dir] ***************************************************************************************************************************************************************
+2019-12-10 01:01:43,182 p=avtru u=9376 | TASK [Push dir] ***************************************************************************************************************************************************************
+2019-12-10 01:02:04,641 p=avtru u=9376 |  [ERROR]: User interrupted execution
+
+2019-12-10 01:02:43,005 p=avtru u=9488 | PLAY [copy Dir] ***************************************************************************************************************************************************************
+2019-12-10 01:02:43,018 p=avtru u=9488 | TASK [Push dir] ***************************************************************************************************************************************************************
+2019-12-10 01:02:59,904 p=avtru u=9488 | ok: [minecraft1]
+2019-12-10 01:02:59,908 p=avtru u=9488 | PLAY RECAP ********************************************************************************************************************************************************************
+2019-12-10 01:02:59,909 p=avtru u=9488 | minecraft1                 : ok=1    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2019-12-10 01:04:07,398 p=avtru u=9532 | PLAY [copy Dir] ***************************************************************************************************************************************************************
+2019-12-10 01:04:07,410 p=avtru u=9532 | TASK [Push dir] ***************************************************************************************************************************************************************
+2019-12-10 01:04:25,606 p=avtru u=9532 | changed: [minecraft1]
+2019-12-10 01:04:25,609 p=avtru u=9532 | PLAY RECAP ********************************************************************************************************************************************************************
+2019-12-10 01:04:25,609 p=avtru u=9532 | minecraft1                 : ok=1    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2019-12-10 01:13:15,873 p=avtru u=9755 | PLAY [copy Dir] ***************************************************************************************************************************************************************
+2019-12-10 01:13:15,885 p=avtru u=9755 | TASK [Push dir] ***************************************************************************************************************************************************************
+2019-12-10 01:13:36,493 p=avtru u=9755 | changed: [minecraft1]
+2019-12-10 01:13:36,496 p=avtru u=9755 | PLAY RECAP ********************************************************************************************************************************************************************
+2019-12-10 01:13:36,497 p=avtru u=9755 | minecraft1                 : ok=1    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2019-12-10 01:15:41,446 p=avtru u=9861 | PLAY [copy Dir] ***************************************************************************************************************************************************************
+2019-12-10 01:15:41,457 p=avtru u=9861 | TASK [Push dir] ***************************************************************************************************************************************************************
+2019-12-10 01:15:57,681 p=avtru u=9861 | changed: [minecraft1]
+2019-12-10 01:15:57,684 p=avtru u=9861 | PLAY RECAP ********************************************************************************************************************************************************************
+2019-12-10 01:15:57,684 p=avtru u=9861 | minecraft1                 : ok=1    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2019-12-10 01:35:28,764 p=avtru u=10242 | PLAY [copy Dir] ***************************************************************************************************************************************************************
+2019-12-10 01:35:28,776 p=avtru u=10242 | TASK [Push dir] ***************************************************************************************************************************************************************
+2019-12-10 01:35:46,715 p=avtru u=10242 | changed: [minecraft1]
+2019-12-10 01:35:46,718 p=avtru u=10242 | PLAY RECAP ********************************************************************************************************************************************************************
+2019-12-10 01:35:46,719 p=avtru u=10242 | minecraft1                 : ok=1    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2019-12-10 01:37:20,438 p=avtru u=10360 | PLAY [copy Dir] ***************************************************************************************************************************************************************
+2019-12-10 01:37:20,450 p=avtru u=10360 | TASK [Push dir] ***************************************************************************************************************************************************************
+2019-12-10 01:37:37,414 p=avtru u=10360 | changed: [minecraft1]
+2019-12-10 01:37:37,417 p=avtru u=10360 | PLAY RECAP ********************************************************************************************************************************************************************
+2019-12-10 01:37:37,417 p=avtru u=10360 | minecraft1                 : ok=1    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2019-12-10 01:39:50,896 p=avtru u=10456 | PLAY [copy Dir] ***************************************************************************************************************************************************************
+2019-12-10 01:39:50,909 p=avtru u=10456 | TASK [Push dir] ***************************************************************************************************************************************************************
+2019-12-10 01:40:09,494 p=avtru u=10456 | changed: [minecraft1]
+2019-12-10 01:40:09,496 p=avtru u=10456 | PLAY RECAP ********************************************************************************************************************************************************************
+2019-12-10 01:40:09,496 p=avtru u=10456 | minecraft1                 : ok=1    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2019-12-10 02:06:54,734 p=avtru u=11056 | PLAY [copy Dir] ***************************************************************************************************************************************************************
+2019-12-10 02:06:54,747 p=avtru u=11056 | TASK [Push dir] ***************************************************************************************************************************************************************
+2019-12-10 02:07:19,420 p=avtru u=11056 | changed: [minecraft1]
+2019-12-10 02:07:19,422 p=avtru u=11056 | PLAY RECAP ********************************************************************************************************************************************************************
+2019-12-10 02:07:19,423 p=avtru u=11056 | minecraft1                 : ok=1    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2019-12-10 02:08:56,588 p=avtru u=11148 | PLAY [copy Dir] ***************************************************************************************************************************************************************
+2019-12-10 02:08:56,601 p=avtru u=11148 | TASK [Push dir] ***************************************************************************************************************************************************************
+2019-12-10 02:09:28,480 p=avtru u=11148 | changed: [minecraft1]
+2019-12-10 02:09:28,482 p=avtru u=11148 | PLAY RECAP ********************************************************************************************************************************************************************
+2019-12-10 02:09:28,483 p=avtru u=11148 | minecraft1                 : ok=1    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2019-12-10 02:20:07,376 p=avtru u=11433 | PLAY [copy Dir] ***************************************************************************************************************************************************************
+2019-12-10 02:20:07,388 p=avtru u=11433 | TASK [Push dir] ***************************************************************************************************************************************************************
+2019-12-10 02:20:34,194 p=avtru u=11433 | changed: [minecraft1]
+2019-12-10 02:20:34,198 p=avtru u=11433 | PLAY RECAP ********************************************************************************************************************************************************************
+2019-12-10 02:20:34,198 p=avtru u=11433 | minecraft1                 : ok=1    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2019-12-10 02:28:27,869 p=avtru u=11673 | PLAY [copy Dir] ***************************************************************************************************************************************************************
+2019-12-10 02:28:27,881 p=avtru u=11673 | TASK [Push dir] ***************************************************************************************************************************************************************
+2019-12-10 02:28:54,549 p=avtru u=11673 | changed: [minecraft1]
+2019-12-10 02:28:54,551 p=avtru u=11673 | PLAY RECAP ********************************************************************************************************************************************************************
+2019-12-10 02:28:54,552 p=avtru u=11673 | minecraft1                 : ok=1    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2019-12-10 02:40:36,410 p=avtru u=11986 | ERROR! conflicting action statements: copy, mode
+
+The error appears to be in '/home/avtru/ansible_wf/copy-playbooke.yml': line 7, column 7, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+  tasks:
+    - name: Push dir
+      ^ here
+
+2019-12-10 02:45:39,121 p=avtru u=12064 | ERROR! conflicting action statements: mode, file
+
+The error appears to be in '/home/avtru/ansible_wf/copy-playbooke.yml': line 8, column 16, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+      copy: src=/home/avtru/ansible_wf/minecraft/ dest=/home/centos/minecraft
+               ^ here
+
+There appears to be both 'k=v' shorthand syntax and YAML in this task. Only one syntax may be used.
+
+2019-12-10 02:49:56,646 p=avtru u=12135 | ERROR! conflicting action statements: mode, file
+
+The error appears to be in '/home/avtru/ansible_wf/copy-playbooke.yml': line 10, column 7, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+
+    - name: chmod+x
+      ^ here
+
+2019-12-10 02:50:44,391 p=avtru u=12172 | PLAY [copy Dir] ***************************************************************************************************************************************************************
+2019-12-10 02:50:44,404 p=avtru u=12172 | TASK [Push dir] ***************************************************************************************************************************************************************
+2019-12-10 02:51:15,558 p=avtru u=12172 | changed: [minecraft1]
+2019-12-10 02:51:15,562 p=avtru u=12172 | PLAY RECAP ********************************************************************************************************************************************************************
+2019-12-10 02:51:15,562 p=avtru u=12172 | minecraft1                 : ok=1    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2019-12-10 02:54:55,123 p=avtru u=12302 | ERROR! conflicting action statements: copy, mode
+
+The error appears to be in '/home/avtru/ansible_wf/copy-playbooke.yml': line 7, column 7, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+  tasks:
+    - name: Push dir
+      ^ here
+
+2019-12-10 11:13:07,373 p=avtru u=734 | - Role minecraft-server was created successfully
+2019-12-10 11:35:41,094 p=avtru u=2774 | [DEPRECATION WARNING]: The TRANSFORM_INVALID_GROUP_CHARS settings is set to allow bad characters in group names by default, this will change, but still be user configurable 
+on deprecation. This feature will be removed in version 2.10. Deprecation warnings can be disabled by setting deprecation_warnings=False in ansible.cfg.
+2019-12-10 11:35:41,095 p=avtru u=2774 | [WARNING]: Invalid characters were found in group names but not replaced, use -vvvv to see details
+
+2019-12-10 11:35:41,397 p=avtru u=2774 | ERROR! the field 'hosts' is required but was not set
+2019-12-10 11:37:30,747 p=avtru u=2848 | [DEPRECATION WARNING]: The TRANSFORM_INVALID_GROUP_CHARS settings is set to allow bad characters in group names by default, this will change, but still be user configurable 
+on deprecation. This feature will be removed in version 2.10. Deprecation warnings can be disabled by setting deprecation_warnings=False in ansible.cfg.
+2019-12-10 11:37:30,748 p=avtru u=2848 | [WARNING]: Invalid characters were found in group names but not replaced, use -vvvv to see details
+
+2019-12-10 11:37:30,927 p=avtru u=2848 | ERROR! the field 'hosts' is required but was not set
+2019-12-10 11:37:35,987 p=avtru u=2856 | [DEPRECATION WARNING]: The TRANSFORM_INVALID_GROUP_CHARS settings is set to allow bad characters in group names by default, this will change, but still be user configurable 
+on deprecation. This feature will be removed in version 2.10. Deprecation warnings can be disabled by setting deprecation_warnings=False in ansible.cfg.
+2019-12-10 11:37:35,988 p=avtru u=2856 | [WARNING]: Invalid characters were found in group names but not replaced, use -vvvv to see details
+
+2019-12-10 11:37:36,172 p=avtru u=2856 | ERROR! the field 'hosts' is required but was not set
+2019-12-10 11:40:15,101 p=avtru u=2887 | [DEPRECATION WARNING]: The TRANSFORM_INVALID_GROUP_CHARS settings is set to allow bad characters in group names by default, this will change, but still be user configurable 
+on deprecation. This feature will be removed in version 2.10. Deprecation warnings can be disabled by setting deprecation_warnings=False in ansible.cfg.
+2019-12-10 11:40:15,101 p=avtru u=2887 | [WARNING]: Invalid characters were found in group names but not replaced, use -vvvv to see details
+
+2019-12-10 11:40:15,238 p=avtru u=2887 | ERROR! 'facts' is not a valid attribute for a Play
+
+The error appears to be in '/home/avtru/ansible_wf/minecraft-server.yml': line 2, column 3, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+---
+- name: Deploy minecraft server
+  ^ here
+
+2019-12-10 11:40:57,142 p=avtru u=2898 | [DEPRECATION WARNING]: The TRANSFORM_INVALID_GROUP_CHARS settings is set to allow bad characters in group names by default, this will change, but still be user configurable 
+on deprecation. This feature will be removed in version 2.10. Deprecation warnings can be disabled by setting deprecation_warnings=False in ansible.cfg.
+2019-12-10 11:40:57,142 p=avtru u=2898 | [WARNING]: Invalid characters were found in group names but not replaced, use -vvvv to see details
+
+2019-12-10 11:40:57,293 p=avtru u=2898 | ERROR! the role 'minecraft_server' was not found in /home/avtru/ansible_wf/roles:/home/avtru/.ansible/roles:/usr/share/ansible/roles:/etc/ansible/roles:/home/avtru/ansible_wf
+
+The error appears to be in '/home/avtru/ansible_wf/minecraft-server.yml': line 6, column 7, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+  roles:
+    - minecraft_server
+      ^ here
+
+2019-12-10 11:41:37,130 p=avtru u=2905 | [DEPRECATION WARNING]: The TRANSFORM_INVALID_GROUP_CHARS settings is set to allow bad characters in group names by default, this will change, but still be user configurable 
+on deprecation. This feature will be removed in version 2.10. Deprecation warnings can be disabled by setting deprecation_warnings=False in ansible.cfg.
+2019-12-10 11:41:37,130 p=avtru u=2905 | [WARNING]: Invalid characters were found in group names but not replaced, use -vvvv to see details
+
+2019-12-10 11:41:37,287 p=avtru u=2905 | [DEPRECATION WARNING]: Included file '/home/avtru/ansible_wf/install_packages.yml' not found, however since this include is not explicitly marked as 'static: yes', we will 
+try and include it dynamically later. In the future, this will be an error unless 'static: no' is used on the include task. If you do not want missing includes to be 
+considered dynamic, use 'static: yes' on the include or set the global ansible.cfg options to make all includes static for tasks and/or handlers. This feature will be removed
+ in version 2.12. Deprecation warnings can be disabled by setting deprecation_warnings=False in ansible.cfg.
+2019-12-10 11:41:37,288 p=avtru u=2905 | [DEPRECATION WARNING]: Included file '/home/avtru/ansible_wf/deploy_configs.yml' not found, however since this include is not explicitly marked as 'static: yes', we will try 
+and include it dynamically later. In the future, this will be an error unless 'static: no' is used on the include task. If you do not want missing includes to be considered 
+dynamic, use 'static: yes' on the include or set the global ansible.cfg options to make all includes static for tasks and/or handlers. This feature will be removed in version
+ 2.12. Deprecation warnings can be disabled by setting deprecation_warnings=False in ansible.cfg.
+2019-12-10 11:41:37,290 p=avtru u=2905 | [DEPRECATION WARNING]: Included file '/home/avtru/ansible_wf/configure_docker.yml' not found, however since this include is not explicitly marked as 'static: yes', we will 
+try and include it dynamically later. In the future, this will be an error unless 'static: no' is used on the include task. If you do not want missing includes to be 
+considered dynamic, use 'static: yes' on the include or set the global ansible.cfg options to make all includes static for tasks and/or handlers. This feature will be removed
+ in version 2.12. Deprecation warnings can be disabled by setting deprecation_warnings=False in ansible.cfg.
+2019-12-10 11:41:37,291 p=avtru u=2905 | [DEPRECATION WARNING]: Included file '/home/avtru/ansible_wf/minecraft.yml' not found, however since this include is not explicitly marked as 'static: yes', we will try and 
+include it dynamically later. In the future, this will be an error unless 'static: no' is used on the include task. If you do not want missing includes to be considered 
+dynamic, use 'static: yes' on the include or set the global ansible.cfg options to make all includes static for tasks and/or handlers. This feature will be removed in version
+ 2.12. Deprecation warnings can be disabled by setting deprecation_warnings=False in ansible.cfg.
+2019-12-10 11:41:37,337 p=avtru u=2905 | [WARNING]: Could not match supplied host pattern, ignoring: minecraft_servers
+
+2019-12-10 11:41:37,337 p=avtru u=2905 | PLAY [Deploy minecraft server] ************************************************************************************************************************************************
+2019-12-10 11:41:37,337 p=avtru u=2905 | skipping: no hosts matched
+2019-12-10 11:41:37,338 p=avtru u=2905 | PLAY RECAP ********************************************************************************************************************************************************************
+2019-12-10 11:47:01,326 p=avtru u=3112 | [DEPRECATION WARNING]: The TRANSFORM_INVALID_GROUP_CHARS settings is set to allow bad characters in group names by default, this will change, but still be user configurable 
+on deprecation. This feature will be removed in version 2.10. Deprecation warnings can be disabled by setting deprecation_warnings=False in ansible.cfg.
+2019-12-10 11:47:01,327 p=avtru u=3112 | [WARNING]: Invalid characters were found in group names but not replaced, use -vvvv to see details
+
+2019-12-10 11:47:01,660 p=avtru u=3112 | [DEPRECATION WARNING]: Included file '/home/avtru/ansible_wf/deploy_configs.yml' not found, however since this include is not explicitly marked as 'static: yes', we will try 
+and include it dynamically later. In the future, this will be an error unless 'static: no' is used on the include task. If you do not want missing includes to be considered 
+dynamic, use 'static: yes' on the include or set the global ansible.cfg options to make all includes static for tasks and/or handlers. This feature will be removed in version
+ 2.12. Deprecation warnings can be disabled by setting deprecation_warnings=False in ansible.cfg.
+2019-12-10 11:47:01,662 p=avtru u=3112 | [DEPRECATION WARNING]: Included file '/home/avtru/ansible_wf/configure_docker.yml' not found, however since this include is not explicitly marked as 'static: yes', we will 
+try and include it dynamically later. In the future, this will be an error unless 'static: no' is used on the include task. If you do not want missing includes to be 
+considered dynamic, use 'static: yes' on the include or set the global ansible.cfg options to make all includes static for tasks and/or handlers. This feature will be removed
+ in version 2.12. Deprecation warnings can be disabled by setting deprecation_warnings=False in ansible.cfg.
+2019-12-10 11:47:01,663 p=avtru u=3112 | [DEPRECATION WARNING]: Included file '/home/avtru/ansible_wf/minecraft.yml' not found, however since this include is not explicitly marked as 'static: yes', we will try and 
+include it dynamically later. In the future, this will be an error unless 'static: no' is used on the include task. If you do not want missing includes to be considered 
+dynamic, use 'static: yes' on the include or set the global ansible.cfg options to make all includes static for tasks and/or handlers. This feature will be removed in version
+ 2.12. Deprecation warnings can be disabled by setting deprecation_warnings=False in ansible.cfg.
+2019-12-10 11:47:01,708 p=avtru u=3112 | [WARNING]: Could not match supplied host pattern, ignoring: minecraft_servers
+
+2019-12-10 11:47:01,708 p=avtru u=3112 | PLAY [Deploy minecraft server] ************************************************************************************************************************************************
+2019-12-10 11:47:01,708 p=avtru u=3112 | skipping: no hosts matched
+2019-12-10 11:47:01,709 p=avtru u=3112 | PLAY RECAP ********************************************************************************************************************************************************************
+2019-12-10 11:48:25,186 p=avtru u=3138 | [DEPRECATION WARNING]: Included file '/home/avtru/ansible_wf/deploy_configs.yml' not found, however since this include is not explicitly marked as 'static: yes', we will try 
+and include it dynamically later. In the future, this will be an error unless 'static: no' is used on the include task. If you do not want missing includes to be considered 
+dynamic, use 'static: yes' on the include or set the global ansible.cfg options to make all includes static for tasks and/or handlers. This feature will be removed in version
+ 2.12. Deprecation warnings can be disabled by setting deprecation_warnings=False in ansible.cfg.
+2019-12-10 11:48:25,187 p=avtru u=3138 | [DEPRECATION WARNING]: Included file '/home/avtru/ansible_wf/configure_docker.yml' not found, however since this include is not explicitly marked as 'static: yes', we will 
+try and include it dynamically later. In the future, this will be an error unless 'static: no' is used on the include task. If you do not want missing includes to be 
+considered dynamic, use 'static: yes' on the include or set the global ansible.cfg options to make all includes static for tasks and/or handlers. This feature will be removed
+ in version 2.12. Deprecation warnings can be disabled by setting deprecation_warnings=False in ansible.cfg.
+2019-12-10 11:48:25,189 p=avtru u=3138 | [DEPRECATION WARNING]: Included file '/home/avtru/ansible_wf/minecraft.yml' not found, however since this include is not explicitly marked as 'static: yes', we will try and 
+include it dynamically later. In the future, this will be an error unless 'static: no' is used on the include task. If you do not want missing includes to be considered 
+dynamic, use 'static: yes' on the include or set the global ansible.cfg options to make all includes static for tasks and/or handlers. This feature will be removed in version
+ 2.12. Deprecation warnings can be disabled by setting deprecation_warnings=False in ansible.cfg.
+2019-12-10 11:48:25,235 p=avtru u=3138 | PLAY [Deploy minecraft server] ************************************************************************************************************************************************
+2019-12-10 11:48:25,271 p=avtru u=3138 | TASK [minecraft-server : Install yum utils] ***********************************************************************************************************************************
+2019-12-10 11:48:28,239 p=avtru u=3138 |  [ERROR]: User interrupted execution
+
+2019-12-10 11:50:05,390 p=avtru u=3202 | [DEPRECATION WARNING]: Included file '/home/avtru/ansible_wf/deploy_configs.yml' not 
+found, however since this include is not explicitly marked as 'static: yes', we will 
+try and include it dynamically later. In the future, this will be an error unless 
+'static: no' is used on the include task. If you do not want missing includes to be 
+considered dynamic, use 'static: yes' on the include or set the global ansible.cfg 
+options to make all includes static for tasks and/or handlers. This feature will be 
+removed in version 2.12. Deprecation warnings can be disabled by setting 
+deprecation_warnings=False in ansible.cfg.
+2019-12-10 11:50:05,392 p=avtru u=3202 | [DEPRECATION WARNING]: Included file '/home/avtru/ansible_wf/configure_docker.yml' 
+not found, however since this include is not explicitly marked as 'static: yes', we 
+will try and include it dynamically later. In the future, this will be an error 
+unless 'static: no' is used on the include task. If you do not want missing includes 
+to be considered dynamic, use 'static: yes' on the include or set the global 
+ansible.cfg options to make all includes static for tasks and/or handlers. This 
+feature will be removed in version 2.12. Deprecation warnings can be disabled by 
+setting deprecation_warnings=False in ansible.cfg.
+2019-12-10 11:50:05,393 p=avtru u=3202 | [DEPRECATION WARNING]: Included file '/home/avtru/ansible_wf/minecraft.yml' not 
+found, however since this include is not explicitly marked as 'static: yes', we will 
+try and include it dynamically later. In the future, this will be an error unless 
+'static: no' is used on the include task. If you do not want missing includes to be 
+considered dynamic, use 'static: yes' on the include or set the global ansible.cfg 
+options to make all includes static for tasks and/or handlers. This feature will be 
+removed in version 2.12. Deprecation warnings can be disabled by setting 
+deprecation_warnings=False in ansible.cfg.
+2019-12-10 11:50:05,440 p=avtru u=3202 | PLAY [Deploy minecraft server] *******************************************************
+2019-12-10 11:50:05,456 p=avtru u=3202 | TASK [minecraft-server : Install yum utils] ******************************************
+2019-12-10 11:50:14,975 p=avtru u=3202 | ok: [minecraft1] => (item=yum-utils)
+2019-12-10 11:50:22,343 p=avtru u=3202 | ok: [minecraft1] => (item=lvm2)
+2019-12-10 11:50:27,984 p=avtru u=3202 | ok: [minecraft1] => (item=https://centos7.iuscommunity.org/ius-release.rpm)
+2019-12-10 11:50:27,990 p=avtru u=3202 | TASK [minecraft-server : Add Docker repo] ********************************************
+2019-12-10 11:50:29,514 p=avtru u=3202 | ok: [minecraft1]
+2019-12-10 11:50:29,518 p=avtru u=3202 | TASK [minecraft-server : Install Docker] *********************************************
+2019-12-10 11:50:35,326 p=avtru u=3202 | ok: [minecraft1]
+2019-12-10 11:50:35,336 p=avtru u=3202 | TASK [minecraft-server : Start Docker service] ***************************************
+2019-12-10 11:50:38,111 p=avtru u=3202 | ok: [minecraft1]
+2019-12-10 11:50:38,115 p=avtru u=3202 | TASK [minecraft-server : Add user centos docker group] *******************************
+2019-12-10 11:50:39,409 p=avtru u=3202 | ok: [minecraft1]
+2019-12-10 11:50:39,418 p=avtru u=3202 | TASK [minecraft-server : Install Docker-compose] *************************************
+2019-12-10 11:50:45,173 p=avtru u=3202 | ok: [minecraft1]
+2019-12-10 11:50:45,179 p=avtru u=3202 | TASK [minecraft-server : include] ****************************************************
+2019-12-10 11:50:45,194 p=avtru u=3202 | fatal: [minecraft1]: FAILED! => {"reason": "Could not find or access '/home/avtru/ansible_wf/deploy_configs.yml' on the Ansible Controller."}
+2019-12-10 11:50:45,195 p=avtru u=3202 | PLAY RECAP ***************************************************************************
+2019-12-10 11:50:45,195 p=avtru u=3202 | minecraft1                 : ok=6    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2019-12-10 11:56:32,125 p=avtru u=3327 | [WARNING]: file /home/avtru/ansible_wf/deploy_configs.yml is empty and had no tasks
+to include
+
+2019-12-10 11:56:32,127 p=avtru u=3327 | [WARNING]: file /home/avtru/ansible_wf/configure_docker.yml is empty and had no tasks
+to include
+
+2019-12-10 11:56:32,128 p=avtru u=3327 | [WARNING]: file /home/avtru/ansible_wf/minecraft.yml is empty and had no tasks to
+include
+
+2019-12-10 11:56:32,175 p=avtru u=3327 | PLAY [Deploy minecraft server] *******************************************************
+2019-12-10 11:56:32,190 p=avtru u=3327 | TASK [minecraft-server : Install yum utils] ******************************************
+2019-12-10 11:56:39,490 p=avtru u=3327 | ok: [minecraft1] => (item=yum-utils)
+2019-12-10 11:56:45,479 p=avtru u=3327 | ok: [minecraft1] => (item=lvm2)
+2019-12-10 11:56:50,949 p=avtru u=3327 | ok: [minecraft1] => (item=https://centos7.iuscommunity.org/ius-release.rpm)
+2019-12-10 11:56:50,954 p=avtru u=3327 | TASK [minecraft-server : Add Docker repo] ********************************************
+2019-12-10 11:56:52,489 p=avtru u=3327 | ok: [minecraft1]
+2019-12-10 11:56:52,495 p=avtru u=3327 | TASK [minecraft-server : Install Docker] *********************************************
+2019-12-10 11:56:57,989 p=avtru u=3327 | ok: [minecraft1]
+2019-12-10 11:56:57,997 p=avtru u=3327 | TASK [minecraft-server : Start Docker service] ***************************************
+2019-12-10 11:57:00,811 p=avtru u=3327 | ok: [minecraft1]
+2019-12-10 11:57:00,816 p=avtru u=3327 | TASK [minecraft-server : Add user centos docker group] *******************************
+2019-12-10 11:57:02,172 p=avtru u=3327 | ok: [minecraft1]
+2019-12-10 11:57:02,178 p=avtru u=3327 | TASK [minecraft-server : Install Docker-compose] *************************************
+2019-12-10 11:57:07,656 p=avtru u=3327 | ok: [minecraft1]
+2019-12-10 11:57:07,660 p=avtru u=3327 | PLAY RECAP ***************************************************************************
+2019-12-10 11:57:07,661 p=avtru u=3327 | minecraft1                 : ok=6    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2019-12-10 12:14:15,486 p=avtru u=3553 | [WARNING]: file /home/avtru/ansible_wf/minecraft-server/tasks/configure_docker.yml is
+empty and had no tasks to include
+
+2019-12-10 12:14:15,487 p=avtru u=3553 | [WARNING]: file /home/avtru/ansible_wf/minecraft-server/tasks/minecraft.yml is empty
+and had no tasks to include
+
+2019-12-10 12:14:15,532 p=avtru u=3553 | PLAY [Deploy minecraft server] *******************************************************
+2019-12-10 12:14:15,552 p=avtru u=3553 | TASK [minecraft-server : Deploy Dockerfile] ******************************************
+2019-12-10 12:14:16,576 p=avtru u=3553 | fatal: [minecraft1]: FAILED! => {"changed": false, "msg": "src and dest are required"}
+2019-12-10 12:14:16,578 p=avtru u=3553 | PLAY RECAP ***************************************************************************
+2019-12-10 12:14:16,578 p=avtru u=3553 | minecraft1                 : ok=0    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2019-12-10 12:15:44,568 p=avtru u=4122 | [WARNING]: file /home/avtru/ansible_wf/minecraft-server/tasks/configure_docker.yml is
+empty and had no tasks to include
+
+2019-12-10 12:15:44,569 p=avtru u=4122 | [WARNING]: file /home/avtru/ansible_wf/minecraft-server/tasks/minecraft.yml is empty
+and had no tasks to include
+
+2019-12-10 12:15:44,614 p=avtru u=4122 | PLAY [Deploy minecraft server] *******************************************************
+2019-12-10 12:15:44,629 p=avtru u=4122 | TASK [minecraft-server : Deploy Dockerfile] ******************************************
+2019-12-10 12:15:48,215 p=avtru u=4122 | changed: [minecraft1]
+2019-12-10 12:15:48,218 p=avtru u=4122 | PLAY RECAP ***************************************************************************
+2019-12-10 12:15:48,218 p=avtru u=4122 | minecraft1                 : ok=1    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2019-12-10 12:15:56,280 p=avtru u=4151 | [WARNING]: file /home/avtru/ansible_wf/minecraft-server/tasks/configure_docker.yml is
+empty and had no tasks to include
+
+2019-12-10 12:15:56,282 p=avtru u=4151 | [WARNING]: file /home/avtru/ansible_wf/minecraft-server/tasks/minecraft.yml is empty
+and had no tasks to include
+
+2019-12-10 12:15:56,332 p=avtru u=4151 | PLAY [Deploy minecraft server] *******************************************************
+2019-12-10 12:15:56,348 p=avtru u=4151 | TASK [minecraft-server : Deploy Dockerfile] ******************************************
+2019-12-10 12:15:58,798 p=avtru u=4151 | ok: [minecraft1]
+2019-12-10 12:15:58,802 p=avtru u=4151 | PLAY RECAP ***************************************************************************
+2019-12-10 12:15:58,802 p=avtru u=4151 | minecraft1                 : ok=1    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2019-12-10 12:19:32,618 p=avtru u=4232 | [WARNING]: file /home/avtru/ansible_wf/minecraft-server/tasks/configure_docker.yml is
+empty and had no tasks to include
+
+2019-12-10 12:19:32,619 p=avtru u=4232 | [WARNING]: file /home/avtru/ansible_wf/minecraft-server/tasks/minecraft.yml is empty
+and had no tasks to include
+
+2019-12-10 12:19:32,665 p=avtru u=4232 | PLAY [Deploy minecraft server] *******************************************************
+2019-12-10 12:19:32,682 p=avtru u=4232 | TASK [minecraft-server : Deploy Dockerfile] ******************************************
+2019-12-10 12:19:36,364 p=avtru u=4232 | changed: [minecraft1]
+2019-12-10 12:19:36,369 p=avtru u=4232 | TASK [minecraft-server : Deploy docker-compose.yml] **********************************
+2019-12-10 12:19:36,696 p=avtru u=4232 | fatal: [minecraft1]: FAILED! => {"changed": false, "msg": "Could not find or access 'docker-compose.yml.j2'\nSearched in:\n\t/home/avtru/ansible_wf/minecraft-server/templates/docker-compose.yml.j2\n\t/home/avtru/ansible_wf/minecraft-server/docker-compose.yml.j2\n\t/home/avtru/ansible_wf/minecraft-server/tasks/templates/docker-compose.yml.j2\n\t/home/avtru/ansible_wf/minecraft-server/tasks/docker-compose.yml.j2\n\t/home/avtru/ansible_wf/templates/docker-compose.yml.j2\n\t/home/avtru/ansible_wf/docker-compose.yml.j2 on the Ansible Controller.\nIf you are using a module and expect the file to exist on the remote, see the remote_src option"}
+2019-12-10 12:19:36,698 p=avtru u=4232 | PLAY RECAP ***************************************************************************
+2019-12-10 12:19:36,699 p=avtru u=4232 | minecraft1                 : ok=1    changed=1    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2019-12-10 12:24:32,471 p=avtru u=4409 | [WARNING]: file /home/avtru/ansible_wf/minecraft-server/tasks/configure_docker.yml is
+empty and had no tasks to include
+
+2019-12-10 12:24:32,473 p=avtru u=4409 | [WARNING]: file /home/avtru/ansible_wf/minecraft-server/tasks/minecraft.yml is empty
+and had no tasks to include
+
+2019-12-10 12:24:32,519 p=avtru u=4409 | PLAY [Deploy minecraft server] *******************************************************
+2019-12-10 12:24:32,537 p=avtru u=4409 | TASK [minecraft-server : Deploy Dockerfile] ******************************************
+2019-12-10 12:24:35,678 p=avtru u=4409 | changed: [minecraft1]
+2019-12-10 12:24:35,682 p=avtru u=4409 | TASK [minecraft-server : Deploy docker-compose.yml] **********************************
+2019-12-10 12:24:37,386 p=avtru u=4409 | changed: [minecraft1]
+2019-12-10 12:24:37,389 p=avtru u=4409 | PLAY RECAP ***************************************************************************
+2019-12-10 12:24:37,389 p=avtru u=4409 | minecraft1                 : ok=2    changed=2    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2019-12-10 12:24:42,020 p=avtru u=4448 | [WARNING]: file /home/avtru/ansible_wf/minecraft-server/tasks/configure_docker.yml is
+empty and had no tasks to include
+
+2019-12-10 12:24:42,021 p=avtru u=4448 | [WARNING]: file /home/avtru/ansible_wf/minecraft-server/tasks/minecraft.yml is empty
+and had no tasks to include
+
+2019-12-10 12:24:42,072 p=avtru u=4448 | PLAY [Deploy minecraft server] *******************************************************
+2019-12-10 12:24:42,090 p=avtru u=4448 | TASK [minecraft-server : Deploy Dockerfile] ******************************************
+2019-12-10 12:24:44,454 p=avtru u=4448 | ok: [minecraft1]
+2019-12-10 12:24:44,458 p=avtru u=4448 | TASK [minecraft-server : Deploy docker-compose.yml] **********************************
+2019-12-10 12:24:46,169 p=avtru u=4448 | ok: [minecraft1]
+2019-12-10 12:24:46,171 p=avtru u=4448 | PLAY RECAP ***************************************************************************
+2019-12-10 12:24:46,171 p=avtru u=4448 | minecraft1                 : ok=2    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2019-12-10 12:26:11,162 p=avtru u=4510 | [WARNING]: file /home/avtru/ansible_wf/minecraft-server/tasks/configure_docker.yml is
+empty and had no tasks to include
+
+2019-12-10 12:26:11,163 p=avtru u=4510 | [WARNING]: file /home/avtru/ansible_wf/minecraft-server/tasks/minecraft.yml is empty
+and had no tasks to include
+
+2019-12-10 12:26:11,208 p=avtru u=4510 | PLAY [Deploy minecraft server] *******************************************************
+2019-12-10 12:26:11,225 p=avtru u=4510 | TASK [minecraft-server : Deploy Dockerfile] ******************************************
+2019-12-10 12:26:14,687 p=avtru u=4510 | changed: [minecraft1]
+2019-12-10 12:26:14,690 p=avtru u=4510 | TASK [minecraft-server : Deploy docker-compose.yml] **********************************
+2019-12-10 12:26:16,852 p=avtru u=4510 | changed: [minecraft1]
+2019-12-10 12:26:16,855 p=avtru u=4510 | PLAY RECAP ***************************************************************************
+2019-12-10 12:26:16,855 p=avtru u=4510 | minecraft1                 : ok=2    changed=2    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2019-12-10 12:26:26,435 p=avtru u=4556 | [WARNING]: file /home/avtru/ansible_wf/minecraft-server/tasks/configure_docker.yml is
+empty and had no tasks to include
+
+2019-12-10 12:26:26,436 p=avtru u=4556 | [WARNING]: file /home/avtru/ansible_wf/minecraft-server/tasks/minecraft.yml is empty
+and had no tasks to include
+
+2019-12-10 12:26:26,484 p=avtru u=4556 | PLAY [Deploy minecraft server] *******************************************************
+2019-12-10 12:26:26,501 p=avtru u=4556 | TASK [minecraft-server : Deploy Dockerfile] ******************************************
+2019-12-10 12:26:28,829 p=avtru u=4556 | ok: [minecraft1]
+2019-12-10 12:26:28,832 p=avtru u=4556 | TASK [minecraft-server : Deploy docker-compose.yml] **********************************
+2019-12-10 12:26:30,557 p=avtru u=4556 | ok: [minecraft1]
+2019-12-10 12:26:30,559 p=avtru u=4556 | PLAY RECAP ***************************************************************************
+2019-12-10 12:26:30,559 p=avtru u=4556 | minecraft1                 : ok=2    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2019-12-10 12:34:07,849 p=avtru u=4681 | [WARNING]: file /home/avtru/ansible_wf/minecraft-server/tasks/configure_docker.yml is
+empty and had no tasks to include
+
+2019-12-10 12:34:07,850 p=avtru u=4681 | [WARNING]: file /home/avtru/ansible_wf/minecraft-server/tasks/minecraft.yml is empty
+and had no tasks to include
+
+2019-12-10 12:34:07,896 p=avtru u=4681 | PLAY [Deploy minecraft server] *******************************************************
+2019-12-10 12:34:07,915 p=avtru u=4681 | TASK [minecraft-server : Create logs directory] **************************************
+2019-12-10 12:34:10,207 p=avtru u=4681 | ok: [minecraft1]
+2019-12-10 12:34:10,210 p=avtru u=4681 | TASK [minecraft-server : Create scripts directory] ***********************************
+2019-12-10 12:34:11,270 p=avtru u=4681 | ok: [minecraft1]
+2019-12-10 12:34:11,273 p=avtru u=4681 | PLAY RECAP ***************************************************************************
+2019-12-10 12:34:11,273 p=avtru u=4681 | minecraft1                 : ok=2    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2019-12-10 12:34:59,649 p=avtru u=4712 | [WARNING]: file /home/avtru/ansible_wf/minecraft-server/tasks/configure_docker.yml is
+empty and had no tasks to include
+
+2019-12-10 12:34:59,651 p=avtru u=4712 | [WARNING]: file /home/avtru/ansible_wf/minecraft-server/tasks/minecraft.yml is empty
+and had no tasks to include
+
+2019-12-10 12:34:59,698 p=avtru u=4712 | PLAY [Deploy minecraft server] *******************************************************
+2019-12-10 12:34:59,716 p=avtru u=4712 | TASK [minecraft-server : Create logs directory] **************************************
+2019-12-10 12:35:01,252 p=avtru u=4712 | ok: [minecraft1]
+2019-12-10 12:35:01,255 p=avtru u=4712 | TASK [minecraft-server : Create scripts directory] ***********************************
+2019-12-10 12:35:02,275 p=avtru u=4712 | changed: [minecraft1]
+2019-12-10 12:35:02,279 p=avtru u=4712 | PLAY RECAP ***************************************************************************
+2019-12-10 12:35:02,279 p=avtru u=4712 | minecraft1                 : ok=2    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2019-12-10 12:49:42,262 p=avtru u=5405 | [DEPRECATION WARNING]: Included file '/home/avtru/ansible_wf/creat_image_.yml' not 
+found, however since this include is not explicitly marked as 'static: yes', we will 
+try and include it dynamically later. In the future, this will be an error unless 
+'static: no' is used on the include task. If you do not want missing includes to be 
+considered dynamic, use 'static: yes' on the include or set the global ansible.cfg 
+options to make all includes static for tasks and/or handlers. This feature will be 
+removed in version 2.12. Deprecation warnings can be disabled by setting 
+deprecation_warnings=False in ansible.cfg.
+2019-12-10 12:49:42,263 p=avtru u=5405 | [WARNING]: file /home/avtru/ansible_wf/minecraft-server/tasks/configure_docker.yml is
+empty and had no tasks to include
+
+2019-12-10 12:49:42,264 p=avtru u=5405 | [WARNING]: file /home/avtru/ansible_wf/minecraft-server/tasks/minecraft.yml is empty
+and had no tasks to include
+
+2019-12-10 12:49:42,310 p=avtru u=5405 | PLAY [Deploy minecraft server] *******************************************************
+2019-12-10 12:49:42,329 p=avtru u=5405 | TASK [minecraft-server : include] ****************************************************
+2019-12-10 12:49:42,343 p=avtru u=5405 | fatal: [minecraft1]: FAILED! => {"reason": "Could not find or access '/home/avtru/ansible_wf/creat_image_.yml' on the Ansible Controller."}
+2019-12-10 12:49:42,344 p=avtru u=5405 | PLAY RECAP ***************************************************************************
+2019-12-10 12:49:42,344 p=avtru u=5405 | minecraft1                 : ok=0    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2019-12-10 12:50:24,037 p=avtru u=5416 | [DEPRECATION WARNING]: Included file '/home/avtru/ansible_wf/create_image_.yml' not 
+found, however since this include is not explicitly marked as 'static: yes', we will 
+try and include it dynamically later. In the future, this will be an error unless 
+'static: no' is used on the include task. If you do not want missing includes to be 
+considered dynamic, use 'static: yes' on the include or set the global ansible.cfg 
+options to make all includes static for tasks and/or handlers. This feature will be 
+removed in version 2.12. Deprecation warnings can be disabled by setting 
+deprecation_warnings=False in ansible.cfg.
+2019-12-10 12:50:24,038 p=avtru u=5416 | [WARNING]: file /home/avtru/ansible_wf/minecraft-server/tasks/configure_docker.yml is
+empty and had no tasks to include
+
+2019-12-10 12:50:24,039 p=avtru u=5416 | [WARNING]: file /home/avtru/ansible_wf/minecraft-server/tasks/minecraft.yml is empty
+and had no tasks to include
+
+2019-12-10 12:50:24,085 p=avtru u=5416 | PLAY [Deploy minecraft server] *******************************************************
+2019-12-10 12:50:24,102 p=avtru u=5416 | TASK [minecraft-server : include] ****************************************************
+2019-12-10 12:50:24,116 p=avtru u=5416 | fatal: [minecraft1]: FAILED! => {"reason": "Could not find or access '/home/avtru/ansible_wf/create_image_.yml' on the Ansible Controller."}
+2019-12-10 12:50:24,117 p=avtru u=5416 | PLAY RECAP ***************************************************************************
+2019-12-10 12:50:24,118 p=avtru u=5416 | minecraft1                 : ok=0    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2019-12-10 12:51:11,966 p=avtru u=5473 | ERROR! Syntax Error while loading YAML.
+  did not find expected key
+
+The error appears to be in '/home/avtru/ansible_wf/minecraft-server/tasks/create_image.yml': line 6, column 4, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+      path: /home/centos/minecraft/
+   name: avtrubchyk/mc-server
+   ^ here
+
+2019-12-10 12:52:48,691 p=avtru u=5487 | [WARNING]: file /home/avtru/ansible_wf/minecraft-server/tasks/configure_docker.yml is
+empty and had no tasks to include
+
+2019-12-10 12:52:48,692 p=avtru u=5487 | [WARNING]: file /home/avtru/ansible_wf/minecraft-server/tasks/minecraft.yml is empty
+and had no tasks to include
+
+2019-12-10 12:52:48,738 p=avtru u=5487 | PLAY [Deploy minecraft server] *******************************************************
+2019-12-10 12:52:48,756 p=avtru u=5487 | TASK [minecraft-server : Build an image and push it to a public repo] ****************
+2019-12-10 12:52:52,251 p=avtru u=5487 | fatal: [minecraft1]: FAILED! => {"ansible_facts": {"discovered_interpreter_python": "/usr/bin/python"}, "changed": false, "msg": "Failed to import the required Python library (Docker SDK for Python: docker (Python >= 2.7) or docker-py (Python 2.6)) on mntforge-18.novalocal's Python /usr/bin/python. Please read module documentation and install in the appropriate location. If the required library is installed, but Ansible is using the wrong Python interpreter, please consult the documentation on ansible_python_interpreter, for example via `pip install docker` or `pip install docker-py` (Python 2.6). The error was: No module named docker"}
+2019-12-10 12:52:52,252 p=avtru u=5487 | PLAY RECAP ***************************************************************************
+2019-12-10 12:52:52,252 p=avtru u=5487 | minecraft1                 : ok=0    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2019-12-10 12:54:58,871 p=avtru u=6438 | [WARNING]: file /home/avtru/ansible_wf/minecraft-server/tasks/configure_docker.yml is
+empty and had no tasks to include
+
+2019-12-10 12:54:58,873 p=avtru u=6438 | [WARNING]: file /home/avtru/ansible_wf/minecraft-server/tasks/minecraft.yml is empty
+and had no tasks to include
+
+2019-12-10 12:54:58,920 p=avtru u=6438 | PLAY [Deploy minecraft server] *******************************************************
+2019-12-10 12:54:58,939 p=avtru u=6438 | TASK [minecraft-server : Build an image and push it to a public repo] ****************
+2019-12-10 12:55:01,694 p=avtru u=6438 | fatal: [minecraft1]: FAILED! => {"ansible_facts": {"discovered_interpreter_python": "/usr/bin/python"}, "changed": false, "msg": "Failed to import the required Python library (Docker SDK for Python: docker (Python >= 2.7) or docker-py (Python 2.6)) on mntforge-18.novalocal's Python /usr/bin/python. Please read module documentation and install in the appropriate location. If the required library is installed, but Ansible is using the wrong Python interpreter, please consult the documentation on ansible_python_interpreter, for example via `pip install docker` or `pip install docker-py` (Python 2.6). The error was: No module named docker"}
+2019-12-10 12:55:01,696 p=avtru u=6438 | PLAY RECAP ***************************************************************************
+2019-12-10 12:55:01,696 p=avtru u=6438 | minecraft1                 : ok=0    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2019-12-10 12:55:39,188 p=avtru u=6503 | [WARNING]: file /home/avtru/ansible_wf/minecraft-server/tasks/configure_docker.yml is
+empty and had no tasks to include
+
+2019-12-10 12:55:39,190 p=avtru u=6503 | [WARNING]: file /home/avtru/ansible_wf/minecraft-server/tasks/minecraft.yml is empty
+and had no tasks to include
+
+2019-12-10 12:55:39,235 p=avtru u=6503 | PLAY [Deploy minecraft server] *******************************************************
+2019-12-10 12:55:39,253 p=avtru u=6503 | TASK [minecraft-server : Build an image and push it to a public repo] ****************
+2019-12-10 12:55:41,025 p=avtru u=6503 | fatal: [minecraft1]: FAILED! => {"ansible_facts": {"discovered_interpreter_python": "/usr/bin/python"}, "changed": false, "msg": "Failed to import the required Python library (Docker SDK for Python: docker (Python >= 2.7) or docker-py (Python 2.6)) on mntforge-18.novalocal's Python /usr/bin/python. Please read module documentation and install in the appropriate location. If the required library is installed, but Ansible is using the wrong Python interpreter, please consult the documentation on ansible_python_interpreter, for example via `pip install docker` or `pip install docker-py` (Python 2.6). The error was: No module named docker"}
+2019-12-10 12:55:41,026 p=avtru u=6503 | PLAY RECAP ***************************************************************************
+2019-12-10 12:55:41,027 p=avtru u=6503 | minecraft1                 : ok=0    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2019-12-10 12:57:25,173 p=avtru u=6532 | [WARNING]: file /home/avtru/ansible_wf/minecraft-server/tasks/configure_docker.yml is
+empty and had no tasks to include
+
+2019-12-10 12:57:25,175 p=avtru u=6532 | [WARNING]: file /home/avtru/ansible_wf/minecraft-server/tasks/minecraft.yml is empty
+and had no tasks to include
+
+2019-12-10 12:57:25,222 p=avtru u=6532 | PLAY [Deploy minecraft server] *******************************************************
+2019-12-10 12:57:25,240 p=avtru u=6532 | TASK [minecraft-server : Build an image and push it to a public repo] ****************
+2019-12-10 12:57:28,834 p=avtru u=6532 | fatal: [minecraft1]: FAILED! => {"ansible_facts": {"discovered_interpreter_python": "/usr/bin/python"}, "changed": false, "msg": "Failed to import the required Python library (Docker SDK for Python: docker (Python >= 2.7) or docker-py (Python 2.6)) on mntforge-18.novalocal's Python /usr/bin/python. Please read module documentation and install in the appropriate location. If the required library is installed, but Ansible is using the wrong Python interpreter, please consult the documentation on ansible_python_interpreter, for example via `pip install docker` or `pip install docker-py` (Python 2.6). The error was: No module named docker"}
+2019-12-10 12:57:28,835 p=avtru u=6532 | PLAY RECAP ***************************************************************************
+2019-12-10 12:57:28,835 p=avtru u=6532 | minecraft1                 : ok=0    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2019-12-10 13:01:02,296 p=avtru u=6801 | [WARNING]: file /home/avtru/ansible_wf/minecraft-server/tasks/configure_docker.yml is
+empty and had no tasks to include
+
+2019-12-10 13:01:02,298 p=avtru u=6801 | [WARNING]: file /home/avtru/ansible_wf/minecraft-server/tasks/minecraft.yml is empty
+and had no tasks to include
+
+2019-12-10 13:01:02,346 p=avtru u=6801 | PLAY [Deploy minecraft server] *******************************************************
+2019-12-10 13:01:02,365 p=avtru u=6801 | TASK [minecraft-server : Build an image and push it to a public repo] ****************
+2019-12-10 13:01:04,786 p=avtru u=6801 | [WARNING]: The default for build.pull is currently 'yes', but will be changed to 'no'
+in Ansible 2.12. Please set build.pull explicitly to the value you need.
+
+2019-12-10 13:01:04,786 p=avtru u=6801 | ok: [minecraft1]
+2019-12-10 13:01:04,788 p=avtru u=6801 | PLAY RECAP ***************************************************************************
+2019-12-10 13:01:04,789 p=avtru u=6801 | minecraft1                 : ok=1    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2019-12-10 13:08:23,218 p=avtru u=6998 | ERROR! Syntax Error while loading YAML.
+  did not find expected '-' indicator
+
+The error appears to be in '/home/avtru/ansible_wf/minecraft-server/tasks/install_packages.yml': line 45, column 2, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+
+ - name: Install docker-py
+ ^ here
+
+2019-12-10 13:09:18,850 p=avtru u=7012 | [WARNING]: file /home/avtru/ansible_wf/minecraft-server/tasks/configure_docker.yml is
+empty and had no tasks to include
+
+2019-12-10 13:09:18,852 p=avtru u=7012 | [WARNING]: file /home/avtru/ansible_wf/minecraft-server/tasks/minecraft.yml is empty
+and had no tasks to include
+
+2019-12-10 13:09:18,898 p=avtru u=7012 | PLAY [Deploy minecraft server] *******************************************************
+2019-12-10 13:09:18,917 p=avtru u=7012 | TASK [minecraft-server : Install yum utils] ******************************************
+2019-12-10 13:09:25,633 p=avtru u=7012 | ok: [minecraft1] => (item=yum-utils)
+2019-12-10 13:09:30,864 p=avtru u=7012 | ok: [minecraft1] => (item=lvm2)
+2019-12-10 13:09:36,089 p=avtru u=7012 | ok: [minecraft1] => (item=https://centos7.iuscommunity.org/ius-release.rpm)
+2019-12-10 13:09:41,399 p=avtru u=7012 | ok: [minecraft1] => (item=python-pip)
+2019-12-10 13:09:41,403 p=avtru u=7012 | TASK [minecraft-server : Add Docker repo] ********************************************
+2019-12-10 13:09:42,948 p=avtru u=7012 | ok: [minecraft1]
+2019-12-10 13:09:42,954 p=avtru u=7012 | TASK [minecraft-server : Install Docker] *********************************************
+2019-12-10 13:09:48,252 p=avtru u=7012 | ok: [minecraft1]
+2019-12-10 13:09:48,257 p=avtru u=7012 | TASK [minecraft-server : Start Docker service] ***************************************
+2019-12-10 13:09:50,942 p=avtru u=7012 | ok: [minecraft1]
+2019-12-10 13:09:50,945 p=avtru u=7012 | TASK [minecraft-server : Add user centos docker group] *******************************
+2019-12-10 13:09:52,451 p=avtru u=7012 | ok: [minecraft1]
+2019-12-10 13:09:52,456 p=avtru u=7012 | TASK [minecraft-server : Install Docker-compose] *************************************
+2019-12-10 13:09:59,117 p=avtru u=7012 | ok: [minecraft1]
+2019-12-10 13:09:59,120 p=avtru u=7012 | TASK [minecraft-server : Install docker-py] ******************************************
+2019-12-10 13:10:00,972 p=avtru u=7012 | changed: [minecraft1]
+2019-12-10 13:10:00,975 p=avtru u=7012 | PLAY RECAP ***************************************************************************
+2019-12-10 13:10:00,975 p=avtru u=7012 | minecraft1                 : ok=7    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2019-12-10 13:10:26,909 p=avtru u=7141 | [WARNING]: file /home/avtru/ansible_wf/minecraft-server/tasks/configure_docker.yml is
+empty and had no tasks to include
+
+2019-12-10 13:10:26,910 p=avtru u=7141 | [WARNING]: file /home/avtru/ansible_wf/minecraft-server/tasks/minecraft.yml is empty
+and had no tasks to include
+
+2019-12-10 13:10:26,957 p=avtru u=7141 | PLAY [Deploy minecraft server] *******************************************************
+2019-12-10 13:10:26,976 p=avtru u=7141 | TASK [minecraft-server : Build an image and push it to a public repo] ****************
+2019-12-10 13:10:28,700 p=avtru u=7141 | [WARNING]: The default for build.pull is currently 'yes', but will be changed to 'no'
+in Ansible 2.12. Please set build.pull explicitly to the value you need.
+
+2019-12-10 13:10:28,700 p=avtru u=7141 | ok: [minecraft1]
+2019-12-10 13:10:28,701 p=avtru u=7141 | PLAY RECAP ***************************************************************************
+2019-12-10 13:10:28,702 p=avtru u=7141 | minecraft1                 : ok=1    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2019-12-10 13:12:34,970 p=avtru u=7194 | [WARNING]: file /home/avtru/ansible_wf/minecraft-server/tasks/configure_docker.yml is
+empty and had no tasks to include
+
+2019-12-10 13:12:34,971 p=avtru u=7194 | [WARNING]: file /home/avtru/ansible_wf/minecraft-server/tasks/minecraft.yml is empty
+and had no tasks to include
+
+2019-12-10 13:12:35,021 p=avtru u=7194 | PLAY [Deploy minecraft server] *******************************************************
+2019-12-10 13:12:35,040 p=avtru u=7194 | TASK [minecraft-server : Build an image and push it to a public repo] ****************
+2019-12-10 13:14:02,227 p=avtru u=7194 | [WARNING]: The default for build.pull is currently 'yes', but will be changed to 'no'
+in Ansible 2.12. Please set build.pull explicitly to the value you need.
+
+2019-12-10 13:14:02,227 p=avtru u=7194 | changed: [minecraft1]
+2019-12-10 13:14:02,229 p=avtru u=7194 | PLAY RECAP ***************************************************************************
+2019-12-10 13:14:02,229 p=avtru u=7194 | minecraft1                 : ok=1    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2019-12-10 13:20:38,735 p=avtru u=7496 | [WARNING]: file /home/avtru/ansible_wf/minecraft-server/tasks/configure_docker.yml is
+empty and had no tasks to include
+
+2019-12-10 13:20:38,737 p=avtru u=7496 | [WARNING]: file /home/avtru/ansible_wf/minecraft-server/tasks/minecraft.yml is empty
+and had no tasks to include
+
+2019-12-10 13:20:38,783 p=avtru u=7496 | PLAY [Deploy minecraft server] *******************************************************
+2019-12-10 13:20:38,802 p=avtru u=7496 | TASK [minecraft-server : Build an image and push it to a public repo] ****************
+2019-12-10 13:22:02,378 p=avtru u=7496 | [WARNING]: The default for build.pull is currently 'yes', but will be changed to 'no'
+in Ansible 2.12. Please set build.pull explicitly to the value you need.
+
+2019-12-10 13:22:02,379 p=avtru u=7496 | changed: [minecraft1]
+2019-12-10 13:22:02,380 p=avtru u=7496 | PLAY RECAP ***************************************************************************
+2019-12-10 13:22:02,380 p=avtru u=7496 | minecraft1                 : ok=1    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2019-12-10 13:23:26,606 p=avtru u=7686 | [WARNING]: file /home/avtru/ansible_wf/minecraft-server/tasks/configure_docker.yml is
+empty and had no tasks to include
+
+2019-12-10 13:23:26,608 p=avtru u=7686 | [WARNING]: file /home/avtru/ansible_wf/minecraft-server/tasks/minecraft.yml is empty
+and had no tasks to include
+
+2019-12-10 13:23:26,655 p=avtru u=7686 | PLAY [Deploy minecraft server] *******************************************************
+2019-12-10 13:23:26,674 p=avtru u=7686 | TASK [minecraft-server : Build an image and push it to a public repo] ****************
+2019-12-10 13:24:45,914 p=avtru u=7686 | [WARNING]: The default for build.pull is currently 'yes', but will be changed to 'no'
+in Ansible 2.12. Please set build.pull explicitly to the value you need.
+
+2019-12-10 13:24:45,914 p=avtru u=7686 | changed: [minecraft1]
+2019-12-10 13:24:45,915 p=avtru u=7686 | PLAY RECAP ***************************************************************************
+2019-12-10 13:24:45,916 p=avtru u=7686 | minecraft1                 : ok=1    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2019-12-10 13:39:39,601 p=avtru u=8305 | ERROR! Syntax Error while loading YAML.
+  mapping values are not allowed in this context
+
+The error appears to be in '/home/avtru/ansible_wf/minecraft-server/tasks/dc-compose.yml': line 3, column 19, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+- name: Run `docker-compose up` again
+    docker_compose:
+                  ^ here
+
+2019-12-10 13:40:00,210 p=avtru u=8313 | [WARNING]: file /home/avtru/ansible_wf/minecraft-server/tasks/configure_docker.yml is
+empty and had no tasks to include
+
+2019-12-10 13:40:00,213 p=avtru u=8313 | [WARNING]: file /home/avtru/ansible_wf/minecraft-server/tasks/minecraft.yml is empty
+and had no tasks to include
+
+2019-12-10 13:40:00,258 p=avtru u=8313 | PLAY [Deploy minecraft server] *******************************************************
+2019-12-10 13:40:00,277 p=avtru u=8313 | TASK [minecraft-server : Run `docker-compose up` again] ******************************
+2019-12-10 13:40:02,776 p=avtru u=8313 | fatal: [minecraft1]: FAILED! => {"ansible_facts": {"discovered_interpreter_python": "/usr/bin/python"}, "changed": false, "msg": "Unable to load docker-compose. Try `pip install docker-compose`. Error: Traceback (most recent call last):\n  File \"/tmp/ansible_docker_compose_payload_n2SkR3/ansible_docker_compose_payload.zip/ansible/modules/cloud/docker/docker_compose.py\", line 482, in <module>\nImportError: No module named compose\n"}
+2019-12-10 13:40:02,778 p=avtru u=8313 | PLAY RECAP ***************************************************************************
+2019-12-10 13:40:02,779 p=avtru u=8313 | minecraft1                 : ok=0    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2019-12-10 13:46:21,951 p=avtru u=8817 | [WARNING]: file /home/avtru/ansible_wf/minecraft-server/tasks/configure_docker.yml is
+empty and had no tasks to include
+
+2019-12-10 13:46:21,954 p=avtru u=8817 | [WARNING]: file /home/avtru/ansible_wf/minecraft-server/tasks/minecraft.yml is empty
+and had no tasks to include
+
+2019-12-10 13:46:21,999 p=avtru u=8817 | PLAY [Deploy minecraft server] *******************************************************
+2019-12-10 13:46:22,018 p=avtru u=8817 | TASK [minecraft-server : Run `docker-compose up` again] ******************************
+2019-12-10 13:46:24,519 p=avtru u=8817 | fatal: [minecraft1]: FAILED! => {"ansible_facts": {"discovered_interpreter_python": "/usr/bin/python"}, "changed": false, "msg": "Unable to load docker-compose. Try `pip install docker-compose`. Error: Traceback (most recent call last):\n  File \"/tmp/ansible_docker_compose_payload_HAL9Qy/ansible_docker_compose_payload.zip/ansible/modules/cloud/docker/docker_compose.py\", line 482, in <module>\nImportError: No module named compose\n"}
+2019-12-10 13:46:24,522 p=avtru u=8817 | PLAY RECAP ***************************************************************************
+2019-12-10 13:46:24,522 p=avtru u=8817 | minecraft1                 : ok=0    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2019-12-10 13:48:47,795 p=avtru u=8882 | [WARNING]: file /home/avtru/ansible_wf/minecraft-server/tasks/configure_docker.yml is
+empty and had no tasks to include
+
+2019-12-10 13:48:47,798 p=avtru u=8882 | [WARNING]: file /home/avtru/ansible_wf/minecraft-server/tasks/minecraft.yml is empty
+and had no tasks to include
+
+2019-12-10 13:48:47,843 p=avtru u=8882 | PLAY [Deploy minecraft server] *******************************************************
+2019-12-10 13:48:47,863 p=avtru u=8882 | TASK [minecraft-server : Deploy Dockerfile] ******************************************
+2019-12-10 13:48:51,182 p=avtru u=8882 | ok: [minecraft1]
+2019-12-10 13:48:51,186 p=avtru u=8882 | TASK [minecraft-server : Deploy docker-compose.yml] **********************************
+2019-12-10 13:48:53,836 p=avtru u=8882 | changed: [minecraft1]
+2019-12-10 13:48:53,839 p=avtru u=8882 | PLAY RECAP ***************************************************************************
+2019-12-10 13:48:53,839 p=avtru u=8882 | minecraft1                 : ok=2    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2019-12-10 13:50:29,550 p=avtru u=8966 | [WARNING]: file /home/avtru/ansible_wf/minecraft-server/tasks/configure_docker.yml is
+empty and had no tasks to include
+
+2019-12-10 13:50:29,552 p=avtru u=8966 | [WARNING]: file /home/avtru/ansible_wf/minecraft-server/tasks/minecraft.yml is empty
+and had no tasks to include
+
+2019-12-10 13:50:29,599 p=avtru u=8966 | PLAY [Deploy minecraft server] *******************************************************
+2019-12-10 13:50:29,618 p=avtru u=8966 | TASK [minecraft-server : Deploy Dockerfile] ******************************************
+2019-12-10 13:50:32,883 p=avtru u=8966 | ok: [minecraft1]
+2019-12-10 13:50:32,886 p=avtru u=8966 | TASK [minecraft-server : Deploy docker-compose.yml] **********************************
+2019-12-10 13:50:35,413 p=avtru u=8966 | changed: [minecraft1]
+2019-12-10 13:50:35,417 p=avtru u=8966 | PLAY RECAP ***************************************************************************
+2019-12-10 13:50:35,417 p=avtru u=8966 | minecraft1                 : ok=2    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2019-12-10 14:01:31,130 p=avtru u=9224 | [WARNING]: file /home/avtru/ansible_wf/minecraft-server/tasks/configure_docker.yml is
+empty and had no tasks to include
+
+2019-12-10 14:01:31,132 p=avtru u=9224 | [WARNING]: file /home/avtru/ansible_wf/minecraft-server/tasks/minecraft.yml is empty
+and had no tasks to include
+
+2019-12-10 14:01:31,180 p=avtru u=9224 | PLAY [Deploy minecraft server] *******************************************************
+2019-12-10 14:01:31,205 p=avtru u=9224 | TASK [minecraft-server : Run `docker-compose up`] ************************************
+2019-12-10 14:01:33,670 p=avtru u=9224 | fatal: [minecraft1]: FAILED! => {"ansible_facts": {"discovered_interpreter_python": "/usr/bin/python"}, "changed": true, "cmd": ["docker", "compose", "up", "-d", "-f", "/home/centos/minecraft/docker-compose.yml"], "delta": "0:00:00.077906", "end": "2019-12-10 11:01:33.411229", "msg": "non-zero return code", "rc": 125, "start": "2019-12-10 11:01:33.333323", "stderr": "unknown shorthand flag: 'd' in -d\nSee 'docker --help'.\n\nUsage:\tdocker [OPTIONS] COMMAND\n\nA self-sufficient runtime for containers\n\nOptions:\n      --config string      Location of client config files (default \"/home/centos/.docker\")\n  -c, --context string     Name of the context to use to connect to the daemon (overrides DOCKER_HOST env var and default context set with \"docker context use\")\n  -D, --debug              Enable debug mode\n  -H, --host list          Daemon socket(s) to connect to\n  -l, --log-level string   Set the logging level (\"debug\"|\"info\"|\"warn\"|\"error\"|\"fatal\") (default \"info\")\n      --tls                Use TLS; implied by --tlsverify\n      --tlscacert string   Trust certs signed only by this CA (default \"/home/centos/.docker/ca.pem\")\n      --tlscert string     Path to TLS certificate file (default \"/home/centos/.docker/cert.pem\")\n      --tlskey string      Path to TLS key file (default \"/home/centos/.docker/key.pem\")\n      --tlsverify          Use TLS and verify the remote\n  -v, --version            Print version information and quit\n\nManagement Commands:\n  builder     Manage builds\n  config      Manage Docker configs\n  container   Manage containers\n  context     Manage contexts\n  engine      Manage the docker engine\n  image       Manage images\n  network     Manage networks\n  node        Manage Swarm nodes\n  plugin      Manage plugins\n  secret      Manage Docker secrets\n  service     Manage services\n  stack       Manage Docker stacks\n  swarm       Manage Swarm\n  system      Manage Docker\n  trust       Manage trust on Docker images\n  volume      Manage volumes\n\nCommands:\n  attach      Attach local standard input, output, and error streams to a running container\n  build       Build an image from a Dockerfile\n  commit      Create a new image from a container's changes\n  cp          Copy files/folders between a container and the local filesystem\n  create      Create a new container\n  diff        Inspect changes to files or directories on a container's filesystem\n  events      Get real time events from the server\n  exec        Run a command in a running container\n  export      Export a container's filesystem as a tar archive\n  history     Show the history of an image\n  images      List images\n  import      Import the contents from a tarball to create a filesystem image\n  info        Display system-wide information\n  inspect     Return low-level information on Docker objects\n  kill        Kill one or more running containers\n  load        Load an image from a tar archive or STDIN\n  login       Log in to a Docker registry\n  logout      Log out from a Docker registry\n  logs        Fetch the logs of a container\n  pause       Pause all processes within one or more containers\n  port        List port mappings or a specific mapping for the container\n  ps          List containers\n  pull        Pull an image or a repository from a registry\n  push        Push an image or a repository to a registry\n  rename      Rename a container\n  restart     Restart one or more containers\n  rm          Remove one or more containers\n  rmi         Remove one or more images\n  run         Run a command in a new container\n  save        Save one or more images to a tar archive (streamed to STDOUT by default)\n  search      Search the Docker Hub for images\n  start       Start one or more stopped containers\n  stats       Display a live stream of container(s) resource usage statistics\n  stop        Stop one or more running containers\n  tag         Create a tag TARGET_IMAGE that refers to SOURCE_IMAGE\n  top         Display the running processes of a container\n  unpause     Unpause all processes within one or more containers\n  update      Update configuration of one or more containers\n  version     Show the Docker version information\n  wait        Block until one or more containers stop, then print their exit codes\n\nRun 'docker COMMAND --help' for more information on a command.", "stderr_lines": ["unknown shorthand flag: 'd' in -d", "See 'docker --help'.", "", "Usage:\tdocker [OPTIONS] COMMAND", "", "A self-sufficient runtime for containers", "", "Options:", "      --config string      Location of client config files (default \"/home/centos/.docker\")", "  -c, --context string     Name of the context to use to connect to the daemon (overrides DOCKER_HOST env var and default context set with \"docker context use\")", "  -D, --debug              Enable debug mode", "  -H, --host list          Daemon socket(s) to connect to", "  -l, --log-level string   Set the logging level (\"debug\"|\"info\"|\"warn\"|\"error\"|\"fatal\") (default \"info\")", "      --tls                Use TLS; implied by --tlsverify", "      --tlscacert string   Trust certs signed only by this CA (default \"/home/centos/.docker/ca.pem\")", "      --tlscert string     Path to TLS certificate file (default \"/home/centos/.docker/cert.pem\")", "      --tlskey string      Path to TLS key file (default \"/home/centos/.docker/key.pem\")", "      --tlsverify          Use TLS and verify the remote", "  -v, --version            Print version information and quit", "", "Management Commands:", "  builder     Manage builds", "  config      Manage Docker configs", "  container   Manage containers", "  context     Manage contexts", "  engine      Manage the docker engine", "  image       Manage images", "  network     Manage networks", "  node        Manage Swarm nodes", "  plugin      Manage plugins", "  secret      Manage Docker secrets", "  service     Manage services", "  stack       Manage Docker stacks", "  swarm       Manage Swarm", "  system      Manage Docker", "  trust       Manage trust on Docker images", "  volume      Manage volumes", "", "Commands:", "  attach      Attach local standard input, output, and error streams to a running container", "  build       Build an image from a Dockerfile", "  commit      Create a new image from a container's changes", "  cp          Copy files/folders between a container and the local filesystem", "  create      Create a new container", "  diff        Inspect changes to files or directories on a container's filesystem", "  events      Get real time events from the server", "  exec        Run a command in a running container", "  export      Export a container's filesystem as a tar archive", "  history     Show the history of an image", "  images      List images", "  import      Import the contents from a tarball to create a filesystem image", "  info        Display system-wide information", "  inspect     Return low-level information on Docker objects", "  kill        Kill one or more running containers", "  load        Load an image from a tar archive or STDIN", "  login       Log in to a Docker registry", "  logout      Log out from a Docker registry", "  logs        Fetch the logs of a container", "  pause       Pause all processes within one or more containers", "  port        List port mappings or a specific mapping for the container", "  ps          List containers", "  pull        Pull an image or a repository from a registry", "  push        Push an image or a repository to a registry", "  rename      Rename a container", "  restart     Restart one or more containers", "  rm          Remove one or more containers", "  rmi         Remove one or more images", "  run         Run a command in a new container", "  save        Save one or more images to a tar archive (streamed to STDOUT by default)", "  search      Search the Docker Hub for images", "  start       Start one or more stopped containers", "  stats       Display a live stream of container(s) resource usage statistics", "  stop        Stop one or more running containers", "  tag         Create a tag TARGET_IMAGE that refers to SOURCE_IMAGE", "  top         Display the running processes of a container", "  unpause     Unpause all processes within one or more containers", "  update      Update configuration of one or more containers", "  version     Show the Docker version information", "  wait        Block until one or more containers stop, then print their exit codes", "", "Run 'docker COMMAND --help' for more information on a command."], "stdout": "", "stdout_lines": []}
+2019-12-10 14:01:33,671 p=avtru u=9224 | PLAY RECAP ***************************************************************************
+2019-12-10 14:01:33,671 p=avtru u=9224 | minecraft1                 : ok=0    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2019-12-10 14:05:06,194 p=avtru u=9305 | [WARNING]: file /home/avtru/ansible_wf/minecraft-server/tasks/configure_docker.yml is
+empty and had no tasks to include
+
+2019-12-10 14:05:06,196 p=avtru u=9305 | [WARNING]: file /home/avtru/ansible_wf/minecraft-server/tasks/minecraft.yml is empty
+and had no tasks to include
+
+2019-12-10 14:05:06,242 p=avtru u=9305 | PLAY [Deploy minecraft server] *******************************************************
+2019-12-10 14:05:06,262 p=avtru u=9305 | TASK [minecraft-server : Run `docker-compose up`] ************************************
+2019-12-10 14:05:09,467 p=avtru u=9305 | changed: [minecraft1]
+2019-12-10 14:05:09,470 p=avtru u=9305 | PLAY RECAP ***************************************************************************
+2019-12-10 14:05:09,470 p=avtru u=9305 | minecraft1                 : ok=1    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2019-12-10 14:53:01,328 p=avtru u=2714 | [WARNING]: Could not match supplied host pattern, ignoring: pushdf
+
+2019-12-10 14:53:01,329 p=avtru u=2714 | ERROR! Specified hosts and/or --limit does not match any hosts
+2019-12-10 14:53:34,970 p=avtru u=2719 | [WARNING]: file /home/avtru/ansible_wf/minecraft-server/tasks/configure_docker.yml is
+empty and had no tasks to include
+
+2019-12-10 14:53:34,972 p=avtru u=2719 | [WARNING]: file /home/avtru/ansible_wf/minecraft-server/tasks/minecraft.yml is empty
+and had no tasks to include
+
+2019-12-10 14:53:35,029 p=avtru u=2719 | PLAY [Deploy minecraft server] *******************************************************
+2019-12-10 14:53:35,059 p=avtru u=2719 | TASK [minecraft-server : Deploy Dockerfile] ******************************************
+2019-12-10 14:53:39,472 p=avtru u=2719 |  [ERROR]: User interrupted execution
+
+2019-12-10 14:53:58,633 p=avtru u=2730 | [WARNING]: file /home/avtru/ansible_wf/minecraft-server/tasks/configure_docker.yml is
+empty and had no tasks to include
+
+2019-12-10 14:53:58,635 p=avtru u=2730 | [WARNING]: file /home/avtru/ansible_wf/minecraft-server/tasks/minecraft.yml is empty
+and had no tasks to include
+
+2019-12-10 14:53:58,678 p=avtru u=2730 | PLAY [Deploy minecraft server] *******************************************************
+2019-12-10 14:53:58,699 p=avtru u=2730 | TASK [minecraft-server : Deploy Dockerfile] ******************************************
+2019-12-10 14:54:01,802 p=avtru u=2730 | ok: [minecraft1]
+2019-12-10 14:54:01,805 p=avtru u=2730 | TASK [minecraft-server : Deploy docker-compose.yml] **********************************
+2019-12-10 14:54:03,497 p=avtru u=2730 | ok: [minecraft1]
+2019-12-10 14:54:03,500 p=avtru u=2730 | TASK [minecraft-server : Deploy server.properties] ***********************************
+2019-12-10 14:54:05,220 p=avtru u=2730 | ok: [minecraft1]
+2019-12-10 14:54:05,223 p=avtru u=2730 | PLAY RECAP ***************************************************************************
+2019-12-10 14:54:05,223 p=avtru u=2730 | minecraft1                 : ok=3    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2019-12-10 14:56:02,804 p=avtru u=2806 | [WARNING]: file /home/avtru/ansible_wf/minecraft-server/tasks/configure_docker.yml is
+empty and had no tasks to include
+
+2019-12-10 14:56:02,806 p=avtru u=2806 | [WARNING]: file /home/avtru/ansible_wf/minecraft-server/tasks/minecraft.yml is empty
+and had no tasks to include
+
+2019-12-10 14:56:02,852 p=avtru u=2806 | PLAY [Deploy minecraft server] *******************************************************
+2019-12-10 14:56:02,868 p=avtru u=2806 | PLAY RECAP ***************************************************************************
+2019-12-10 14:57:07,147 p=avtru u=2848 | [WARNING]: file /home/avtru/ansible_wf/minecraft-server/tasks/configure_docker.yml is
+empty and had no tasks to include
+
+2019-12-10 14:57:07,149 p=avtru u=2848 | [WARNING]: file /home/avtru/ansible_wf/minecraft-server/tasks/minecraft.yml is empty
+and had no tasks to include
+
+2019-12-10 14:57:07,194 p=avtru u=2848 | PLAY [Deploy minecraft server] *******************************************************
+2019-12-10 14:57:07,219 p=avtru u=2848 | TASK [minecraft-server : Run `docker-compose up`] ************************************
+2019-12-10 14:57:10,468 p=avtru u=2848 | changed: [minecraft1]
+2019-12-10 14:57:10,471 p=avtru u=2848 | PLAY RECAP ***************************************************************************
+2019-12-10 14:57:10,471 p=avtru u=2848 | minecraft1                 : ok=1    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   

@@ -1,0 +1,19 @@
+---
+# tasks file for minecraft-server
+- include: install_packages.yml
+  tags:
+    - install
+- include: deploy_configs.yml
+  tags:
+    - pushdf
+- include: create_volumes.yml
+  tags:
+    - volumes
+- include: create_image.yml
+  tags:
+    - image
+- include: dc-compose.yml
+  tags:
+    - compose
+- include: configure_docker.yml
+- include: minecraft.yml

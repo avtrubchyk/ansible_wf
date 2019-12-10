@@ -1,0 +1,21 @@
+---
+- name: Deploy Dockerfile
+  template:
+    src: Dockerfile.j2
+    dest: /home/centos/minecraft/Dockerfile
+    owner: centos
+    group: centos
+    mode: 0644
+
+- name: Deploy docker-compose.yml
+  template:
+    src: docker-compose.yml.j2
+    dest: /home/centos/minecraft/docker-compose.yml
+    owner: centos
+    group: centos
+    mode: 0644
+
+- name: Deploy server.properties
+  template:
+    src: server.properties.j2
+    dest: /home/centos/minecraft/server.properties

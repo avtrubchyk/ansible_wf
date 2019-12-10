@@ -1,0 +1,16 @@
+minecraft-server:
+  ports:
+    - "25565:25565"
+    - "25575:25575"
+
+  image: avtrubchyk/mc-server
+
+  container_name: mc
+
+  volumes:
+    - ./logs:/logs
+    - ./scripts:/scripts  
+
+  tty: true
+  stdin_open: true
+  restart: always

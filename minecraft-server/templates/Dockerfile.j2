@@ -1,0 +1,35 @@
+# {{ ansible_managed }}
+# This Docker file buils a minecraft server WG FORGE
+
+FROM centos:7
+
+MAINTAINER Andrei Trubchyk “avtrubchyk@gmail.com”
+
+RUN yum clean all && \
+    yum -y install java-1.8.0-openjdk-headless \
+    yum -y install wget \
+    yum -y install git \
+    yum -y install gcc \
+    yum -y install screen
+
+RUN mkdir -p minecraft/{server,tools}
+
+RUN wget -O minecraft/server/minecraft_server.jar {{ mc_url }}
+
+RUN echo "eula=true" > eula.txt
+
+
+RUN cd /minecraft/tools && \
+    git clone https://github.com/Tiiffi/mcrcon.git && \
+    cd mcrcon && \
+    gcc -std=gnu11 -pedantic -Wall -Wextra -O2 -s -o mcrcon mcrcon.c
+
+COPY server.properties /
+
+
+ENV ONLINE_MODE=false ENABLE_RCON=true RCON_PASSWORD=88888888
+
+CMD screen -S minecraft java -Xms512m -Xmx1024m -jar minecraft/server/minecraft_server.jar nogui 
+
+EXPOSE 25565 25575
+

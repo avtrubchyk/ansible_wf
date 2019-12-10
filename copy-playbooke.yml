@@ -1,0 +1,10 @@
+- name: copy Dir
+  gather_facts: No
+  hosts: group_minecraft
+  vars:
+    user_name: centos
+  tasks:  
+    - name: Push dir
+      copy: src=/home/avtru/ansible_wf/minecraft/ dest=/home/centos/minecraft 
+      
+    

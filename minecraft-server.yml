@@ -1,0 +1,6 @@
+---
+- name: Deploy minecraft server
+  hosts:  minecraft_servers
+  gather_facts: no
+  roles:
+    - minecraft-server
